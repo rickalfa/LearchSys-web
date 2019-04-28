@@ -38,9 +38,7 @@ class Router{
             
         }
         
-        //$_SESSION['ok'] = false;
-        //$session_ok = $_SESSION['ok'];
-        
+       
         if($session_ok)
         {
             echo 'session ok : True ';
