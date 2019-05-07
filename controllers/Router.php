@@ -109,7 +109,8 @@ class Router{
                 
                 $login_form = new ViewController;
                 
-             
+                $login_form->load_view_menu('menuUser');
+
                 $login_form->load_view('login');
                 
                 ///Datos del usuario
@@ -137,6 +138,9 @@ class Router{
                      
 
                       $viewcontrol = new ViewController();
+
+                      
+                      $login_form->load_view_menu('menuUser');
 
                       $viewcontrol->load_view('login');
 
