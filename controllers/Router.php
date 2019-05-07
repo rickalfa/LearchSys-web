@@ -61,6 +61,8 @@ class Router{
             ///Inicializamos el controlador de Vistas
             $controlador = new ViewController();
 
+            $controlador->load_view_menu('menunavi');
+
             switch($this->route)
             {
                 case 'home':                  
@@ -139,7 +141,7 @@ class Router{
 
                       $viewcontrol = new ViewController();
 
-                      
+
                       $login_form->load_view_menu('menuUser');
 
                       $viewcontrol->load_view('login');
