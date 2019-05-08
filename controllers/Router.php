@@ -120,8 +120,6 @@ class Router{
                 ///Inicializamos el controlador de Vistas
                 $controlador = new ViewController();
     
-                $controlador->load_view_menu('menunavi');
-    
                 switch($this->route)
                 {
                     case 'home':                  
@@ -129,19 +127,19 @@ class Router{
                         break;
                     
                     case 'productos':               
-                         $controlador->load_view('productos');
+                         $controlador->load_view('notice');
                         break;
         
                     case 'usuarios':                
-                         $controlador->load_view('usuarios');
+                         $controlador->load_view('vision');
                         break;
     
                     case 'noticia':     
-                         $controlador->load_view('noticia');
+                         $controlador->load_view('download');
                         break;
     
                     case 'status':
-                         $controlador->load_view('status');
+                         $controlador->load_view('members');
                         break;
     
                     case 'salir':
