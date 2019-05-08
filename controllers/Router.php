@@ -114,6 +114,48 @@ class Router{
                 $login_form->load_view_menu('menuUser');
 
                 $login_form->load_view('login');
+
+                $this->route = isset($_GET['ruta']) ? $_GET['ruta'] : 'home';
+             
+                ///Inicializamos el controlador de Vistas
+                $controlador = new ViewController();
+    
+                $controlador->load_view_menu('menunavi');
+    
+                switch($this->route)
+                {
+                    case 'home':                  
+                         $controlador->load_view('home');
+                        break;
+                    
+                    case 'productos':               
+                         $controlador->load_view('productos');
+                        break;
+        
+                    case 'usuarios':                
+                         $controlador->load_view('usuarios');
+                        break;
+    
+                    case 'noticia':     
+                         $controlador->load_view('noticia');
+                        break;
+    
+                    case 'status':
+                         $controlador->load_view('status');
+                        break;
+    
+                    case 'salir':
+                         $user_session = new SessionController();
+                         $user_session->logout();
+                        break;
+    
+                    default:
+                         $controlador->load_view('error/error404');
+    
+                        break;
+    
+                 }
+    
                 
                 ///Datos del usuario
                 print_r($_SESSION);
