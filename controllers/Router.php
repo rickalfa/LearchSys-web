@@ -115,31 +115,29 @@ class Router{
 
                 $this->route = isset($_GET['ruta']) ? $_GET['ruta'] : 'home';
              
-             $controlador->load_view('login');
-    
                 switch($this->route)
                 {
                     case 'home':                  
                          $controlador->load_view('home');
                         break;
                     
-                    case 'productos':               
+                    case 'notice':               
                          $controlador->load_view('notice');
                         break;
         
-                    case 'usuarios':                
+                    case 'vision':                
                          $controlador->load_view('vision');
                         break;
     
-                    case 'noticia':     
+                    case 'download':     
                          $controlador->load_view('download');
                         break;
     
-                    case 'status':
+                    case 'members':
                          $controlador->load_view('members');
                         break;
 
-                    case 'status':
+                    case 'login':
                         $controlador->load_view('login');
                        break;    
     
