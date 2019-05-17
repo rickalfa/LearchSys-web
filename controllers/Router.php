@@ -113,8 +113,6 @@ class Router{
                 
                 $login_form->load_view_menu('menuUser');
 
-                $login_form->load_view('login');
-
                 $this->route = isset($_GET['ruta']) ? $_GET['ruta'] : 'home';
              
                 ///Inicializamos el controlador de Vistas
@@ -141,6 +139,10 @@ class Router{
                     case 'status':
                          $controlador->load_view('members');
                         break;
+
+                    case 'status':
+                        $controlador->load_view('login');
+                       break;    
     
                     case 'salir':
                          $user_session = new SessionController();
