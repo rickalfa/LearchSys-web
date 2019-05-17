@@ -108,15 +108,14 @@ class Router{
                ///formulario de autenticacion si no esta validada la autenticacion
                /// se mostrara el login
                
-                
-                $login_form = new ViewController;
-                
-                $login_form->load_view_menu('menuUser');
+                   ///Inicializamos el controlador de Vistas
+                   $controlador = new ViewController();
+
+                   $controlador->load_view_menu('menuUser');
 
                 $this->route = isset($_GET['ruta']) ? $_GET['ruta'] : 'home';
              
-                ///Inicializamos el controlador de Vistas
-                $controlador = new ViewController();
+             $controlador->load_view('login');
     
                 switch($this->route)
                 {
