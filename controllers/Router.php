@@ -59,7 +59,9 @@ class Router{
             $this->route = isset($_GET['ruta']) ? $_GET['ruta'] : 'home';
              
             ///Inicializamos el controlador de Vistas
-            $controlador = new ViewController();
+        
+            $controlador_user = new ViewControllerDashb();
+
 
             $controlador->load_view_menu('menunavi');
 

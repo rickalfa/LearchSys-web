@@ -62,7 +62,8 @@ tfoot,
 thead,
 tr,
 th,
-td {
+td 
+{
   margin: 15px;
   padding: 0;
   border: 0;
@@ -74,9 +75,9 @@ td {
   
 }
 
-body {
+body 
+{
     
     background-color : rgb(192, 192, 192);
     
 }
-

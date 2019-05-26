@@ -15,8 +15,15 @@ class Autoload{
 
             $models_path = './modelapp/'.$class_name.'.php';
             $controllers_path = './controllers/'.$class_name.'.php';
+            $controllers_dashboard_path = './system/dashboard/controllers/'.$class_name.'.php';
 
 
+            
+            if(file_exists($controllers_dashboard_path)){
+                require_once($controllers_dashboard_path);
+ 
+                echo "<p>'desde AUTOLOAD '.$controllers_dashboard_path</p>";
+             }
         
 
             if(file_exists($models_path)){

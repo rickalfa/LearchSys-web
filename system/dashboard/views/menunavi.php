@@ -1,9 +1,9 @@
 <!-- NAVEGATION MENU -->
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
+<nav class="navbar navbar-inverse navbar-fixed-left navbar-dark bg-dark" >
 
 
-<a class="navbar-brand" href="#">LearchSys</a>
+<a class="navbar-brand" href="#">LearchSys-Darshboard</a>
 
   <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 
