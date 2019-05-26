@@ -60,7 +60,7 @@ class Router{
              
             ///Inicializamos el controlador de Vistas
         
-            $controlador_user = new ViewControllerDashb();
+            $controlador = new ViewControllerDashb();
 
 
             $controlador->load_view_menu('menunavi');
