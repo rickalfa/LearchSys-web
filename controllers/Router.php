@@ -38,17 +38,6 @@ class Router{
             
         }
         
-       
-        if($session_ok)
-        {
-            echo 'session ok : True ';
-        }else{
-            echo 'session ok : False ';
-        }
-        echo 'esta variable session_ok si es false o true : '.$session_ok. '</br>';
-        print_r($session_ok);
-        
-
         if( $_SESSION['ok'] )
         {
             /// SE COMPRUEBA QUE LA SESSION OK  fue creada y accedemos a este punto
@@ -60,15 +49,20 @@ class Router{
              
             ///Inicializamos el controlador de Vistas
         
+
             $controlador = new ViewControllerDashb();
 
+            $controlador02 = new ViewController();
 
+             
+            $controlador02->load_view_menu('menuUser');
             $controlador->load_view_menu('menunavi');
+            
 
             switch($this->route)
             {
                 case 'home':                  
-                     $controlador->load_view('home');
+                     $controlador02->load_view('home');
                     break;
                 
                 case 'productos':               
@@ -84,6 +78,7 @@ class Router{
                     break;
 
                 case 'status':
+
                      $controlador->load_view('status');
                     break;
 
@@ -157,18 +152,17 @@ class Router{
     
                 
                 ///Datos del usuario
-                print_r($_SESSION);
+                ///print_r($_SESSION);
 
 
                 }else{
                     
                     
-                    echo "<p>'Creacion de la clase Sessioncontroller dentro de route'</p>";
-                   $user_session = new SessionController();
- 
-                   $session = $user_session->login($_POST['user_email'], $_POST['pass']);
+                  echo "<p>'Creacion de la clase Sessioncontroller dentro de route'</p>";
 
-                   ///$session = $user_session->login('thea', '2351');
+                  $user_session = new SessionController();
+ 
+                  $session = $user_session->login($_POST['user_email'], $_POST['pass']);
                   
                   ///Comprovamos si la variable $session viene vacia
 
@@ -187,21 +181,16 @@ class Router{
 
                       $viewcontrol->load_view('login');
 
-                     /// header('Location: ./?error=el usuario'.$_POST['user_email'].'y el 
                      /// password proporsionado no existen o estan erroneos');
 
                     }else{
                         /// el login fue un EXITO
                         
-                        ///echo '<br>';
-                         
-                        echo '<br> el login fue un exito </br>';
-                        
                         session_start();
                          
                         $_SESSION['ok'] = true;
                          
-                     
+                        ///Con esta funcion entregamos los datos a lavariable Global SESSION
                         foreach ($session[0] as $key => $value)
                         {
                             
@@ -212,17 +201,11 @@ class Router{
                         }
                     
                          
-                      ///echo 'password or user is  Correct ';
-
-                      //print_r($session);
+                      ///print_r($session);
                       ///echo $_SESSION['name']. '<br>' ;
-                      
-                      
-                        print_r($_SESSION);
-            
-                        echo  '<br>' ;
+                      ///print_r($_SESSION);
                    
-                      ///header('Location: home');
+                      header('Location: home');
                     }
                 }
             }   

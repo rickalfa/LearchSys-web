@@ -22,7 +22,7 @@
 
 
          <link rel="stylesheet" href="./public/css/estilo_basic.css">
-
+         <link rel="stylesheet" href="./public/css/estilo_dashboard.css">
 
 	  
 

@@ -1,7 +1,11 @@
 <?php
 
 
-echo '<h2>Productos</h2>'
+echo '<h2>Productos</h2>';
+
+
+
+
 
 
 

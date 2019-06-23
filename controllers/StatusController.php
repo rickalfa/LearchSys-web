@@ -64,7 +64,7 @@
 
     public function get($status_id = ''){
 
-        return $this->get($status_id);
+        return $this->model->get($status_id);
 
     }
 
@@ -72,4 +72,4 @@
 
 
 
-?>
+// ?>
