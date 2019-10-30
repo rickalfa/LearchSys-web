@@ -77,7 +77,19 @@ class Router{
                      $controlador->load_view('noticia');
                     break;
 
+                case 'sales':     
+                    $controlador->load_view('sales');
+                   break;
+
                 case 'status':
+                     if( !isset($_POST['ruta']))
+                       $controlador->load_view('status');
+    
+                           if($_POST['ruta'] == 'status_add')
+                           {
+                             $controlador->load_view('status_add');
+                           }
+                    
 
                      $controlador->load_view('status');
                     break;
@@ -208,7 +220,8 @@ class Router{
                       header('Location: home');
                     }
                 }
-            }   
+            }  
+             
     }
 
     /**

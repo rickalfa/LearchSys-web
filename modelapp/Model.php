@@ -8,8 +8,8 @@
 abstract class Model {
  //Atributos
  private static $db_host = 'localhost';
- private static $db_user = 'u967648059_rick';
- private static $db_pass = 'robotech';
+ private static $db_user = 'root';
+ private static $db_pass = '';
  private static $db_charset = 'utf8';
  private static $db_name = 'u967648059_test';
 

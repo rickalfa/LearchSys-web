@@ -19,9 +19,9 @@ $status_table = $status_controller->get();
            <th>id_Status</th>
            <th>Status name</th>
            <th colspan = "2">
-              <form method = "POST" action = "">
-                <input type = "hidden" name ="rut" class = "btn btn-secondary" value = "status-Add">
-                <input type = "button" class = "btn btn-secondary" value = "Add">
+              <form method = "POST" >
+                <input type = "hidden" name ="ruta" class = "btn btn-secondary" value = "status_add">
+                <input type = "submit" class = "btn btn-secondary" value = "Add">
                 
               </form>
            </th>
@@ -36,17 +36,17 @@ $status_table = $status_controller->get();
          <td>' .$status_table[$n]['status_id'].'</td>
          <td>'.$status_table[$n]['status'].'</td>
          <td>
-              <form method = "POST" action = "">
+              <form method = "POST" >
                 <input type = "hidden" name ="rut" class = "btn btn-secondary" value = "' .$status_table[$n]['status_id'].'">
-                <input type = "button" class = "btn btn-info" value = "Edit">
+                <input type = "submit" class = "btn btn-info" value = "Edit">
                 
               </form>
 
          </td>
          <td>
-              <form method = "POST" action = "">
-              <input type = "hidden" name ="rut" class = "btn btn-secondary" value = "' .$status_table[$n]['status_id'].'">
-              <input type = "button" class = "btn btn-danger" value = "Delete">
+              <form method = "POST" >
+                <input type = "hidden" name ="rut" class = "btn btn-secondary" value = "' .$status_table[$n]['status_id'].'">
+                <input type = "button" class = "btn btn-danger" value = "Delete">
               </form>
          </td>
        

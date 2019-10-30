@@ -2,7 +2,7 @@
 Options +FollowSymlinks
 RewriteEngine On 
 
-RewriteBase /
+RewriteBase /Learchsys/Learchsys-web
 
 
 RewriteCond %{SCRIPT_FILENAME} !-d

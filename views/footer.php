@@ -6,3 +6,4 @@
 
 <script src="./public/bootstrap/bootstrap.js"></script>
 <script src="./public/bootstrap/bootstrap.bundle.js.map"></script>
+<script src="./public/js/base_shop.js"></script>
