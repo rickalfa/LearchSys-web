@@ -5,6 +5,15 @@
 Menu Lateral
 */
 
+.table-learch
+{
+  padding-left: 50px;
+margin:30px;
+right:100px;
+
+}
+
+
 .sidenav {
     height: 70%;
     width: 0;

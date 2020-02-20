@@ -10,7 +10,7 @@
 
     
     <li class="nav-item">
-      <a class="nav-link" href="usuarios">usuarios</a>
+      <a class="nav-link" href="users">usuarios</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="productos">Productos</a>
@@ -35,7 +35,7 @@
 
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="#">About</a>
+  <a href="status">Status</a>
   <a href="sales">Sales Views</a>
   <a href="#">Clients</a>
   <a href="#">Contact</a>

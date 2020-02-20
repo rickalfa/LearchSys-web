@@ -53,12 +53,20 @@ class Router{
             $controlador = new ViewControllerDashb();
 
             $controlador02 = new ViewController();
-
-             
+            
             $controlador02->load_view_menu('menuUser');
             $controlador->load_view_menu('menunavi');
             
 
+
+
+
+            if($_POST['ruta'] == 'editar')
+            {
+             $controlador->load_view('users_edit');
+            }
+
+          
             switch($this->route)
             {
                 case 'home':                  
@@ -69,10 +77,23 @@ class Router{
                      $controlador->load_view('productos');
                     break;
     
-                case 'usuarios':                
-                     $controlador->load_view('usuarios');
+                case 'users':     
+                          
+                      $controlador->load_view('users');
+                    
+                     
+                      if($_POST['ruta'] == 'users_add')
+                      {
+                        $controlador->load_view('users_add');
+                      }
+                      if($_POST['ruta'] == 'users_delete')
+                      {
+                       $controlador->load_view('users_delete');
+                      }
+                     
                     break;
 
+                   
                 case 'noticia':     
                      $controlador->load_view('noticia');
                     break;
@@ -83,15 +104,23 @@ class Router{
 
                 case 'status':
                      if( !isset($_POST['ruta']))
-                       $controlador->load_view('status');
+                     
+                           $controlador->load_view('status');
     
                            if($_POST['ruta'] == 'status_add')
                            {
                              $controlador->load_view('status_add');
                            }
-                    
 
-                     $controlador->load_view('status');
+                           if($_POST['ruta'] == 'status_edit')
+                           {
+                             $controlador->load_view('status_edit');
+                           }
+                           if($_POST['ruta'] == 'status_delete')
+                           {
+                             $controlador->load_view('status_delete');
+                           }
+                    
                     break;
 
                 case 'salir':
@@ -221,7 +250,7 @@ class Router{
                     }
                 }
             }  
-             
+
     }
 
     /**

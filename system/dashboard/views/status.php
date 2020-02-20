@@ -9,7 +9,7 @@ $status_table = $status_controller->get();
 
   if( empty($status_table))
   {
-      print('<h4> error esta variable o contiene nada </h4>');
+      print('<h4> error esta variable no contiene nada </h4>');
   }else{
 
       $template_status = ' <div class="table-responsive">
@@ -21,7 +21,7 @@ $status_table = $status_controller->get();
            <th colspan = "2">
               <form method = "POST" >
                 <input type = "hidden" name ="ruta" class = "btn btn-secondary" value = "status_add">
-                <input type = "submit" class = "btn btn-secondary" value = "Add">
+                <input type = "submit" class = "btn btn-secondary" value = "Add new status">
                 
               </form>
            </th>
@@ -30,6 +30,8 @@ $status_table = $status_controller->get();
 
        <tbody>';
 
+       
+
        for ($n=0; $n < count($status_table) - 1; $n++){ 
            $template_status .='
         <tr>
@@ -37,7 +39,8 @@ $status_table = $status_controller->get();
          <td>'.$status_table[$n]['status'].'</td>
          <td>
               <form method = "POST" >
-                <input type = "hidden" name ="rut" class = "btn btn-secondary" value = "' .$status_table[$n]['status_id'].'">
+                <input type = "hidden" name ="ruta" value = "status_edit">
+                <input type = "hidden" name ="status_id" class = "btn btn-secondary" value = "' .$status_table[$n]['status_id'].'">
                 <input type = "submit" class = "btn btn-info" value = "Edit">
                 
               </form>
@@ -45,8 +48,9 @@ $status_table = $status_controller->get();
          </td>
          <td>
               <form method = "POST" >
-                <input type = "hidden" name ="rut" class = "btn btn-secondary" value = "' .$status_table[$n]['status_id'].'">
-                <input type = "button" class = "btn btn-danger" value = "Delete">
+              <input type = "hidden" name ="ruta" value = "status_delete">
+                <input type = "hidden" name ="status_id" class = "btn btn-secondary" value = "' .$status_table[$n]['status_id'].'">
+                <input type = "submit" class = "btn btn-danger" value = "delete">
               </form>
          </td>
        
@@ -54,13 +58,12 @@ $status_table = $status_controller->get();
         }
 
         $template_status .='
-       </tbody>
-
+      </tbody>
       </table>  
-     </div> ';
+      </div> ';
 
-     printf($template_status);
+      printf($template_status);
 
-  }
+     }
 
 ?>

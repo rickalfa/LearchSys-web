@@ -6,7 +6,7 @@
  */
 $role_user = $_SESSION['role'];
 
- if($_POST['ruta'] == 'status_add' AND $_SESSION['role'] == 'admin' )
+ if($_POST['ruta'] == 'users_add' AND $_SESSION['role'] == 'admin' )
    {
 
       if ($_POST['crud'] != 'set')
@@ -15,7 +15,7 @@ $role_user = $_SESSION['role'];
 
         <h3> Add Status</h3>
           <form method = "POST" >
-          <input type = "text" name ="status" placeholder = "status nuevo" required>
+          <input type = "text" name ="status" placeholder = "user nuevo" required>
           <input type = "hidden" name ="ruta" class = "btn btn-secondary" value = "status_add">
           <input type = "hidden" name ="crud" class = "btn btn-secondary" value = "set">
           <input type = "submit" class = "btn btn-secondary" value = "Add New status">
@@ -31,7 +31,7 @@ $role_user = $_SESSION['role'];
       usted no tiene permisos para utilizar esta funcion <a class = "btn btn-danger" href="status">Volver</a>',$role_user);
     }
      
-    if($_POST['ruta'] == 'status_add' && $_SESSION['role'] == 'admin' && $_POST['crud'] == 'set' )
+    if($_POST['ruta'] == 'user_add' && $_SESSION['role'] == 'admin' && $_POST['crud'] == 'set' )
     {
         //Insercion del nuevo status
 
@@ -39,7 +39,7 @@ $role_user = $_SESSION['role'];
 
         $new_status = array(
  
-            'status_id' => 0,
+            'user_id' => 0,
             'status' => $_POST['status']
         );
  

@@ -64,14 +64,15 @@ tr,
 th,
 td 
 {
-  margin: 15px;
+  
   padding: 0;
-  border: 0;
+  border: 30;
   outline: 0;
   font-weight: inherit;
   font-style: inherit;
   font-family: sans-serif;
   vertical-align: baseline;
+  left: 20px;
   
 }
 
