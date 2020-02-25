@@ -53,7 +53,8 @@ INSERTAR registros a la Tabla product
 
 INSERT INTO products 
  SET  mark = 'newmark', weight = 'newpeso', price = 'newprice', statu = 3,
-      ingresdate = DATE, expirationdate = DATE, category = 'categoria', descryption = 'descripcion', countryorigin = 'country'
+      ingresdate = DATE, expirationdate = DATE, category = 'categoria', descryption = 'descripcion',
+       countryorigin = 'country'
        stock = 4, img = 'direciion';
 
 /*
@@ -95,8 +96,8 @@ INSERTAR resgistros a la tabla USERs
 */
 
 INSERT INTO users
- SET name = 'clientenombre', secondname = 'miguel',pass = MD5('un_apssword'), statu = 3, country = 'pais', addres = 'direccion', email = 'correo',
-   phone = '3333333', codpostal = 'sample';
+ SET name = 'clientenombre', secondname = 'miguel',pass = MD5('un_apssword'), statu = 3,
+  country = 'pais', addres = 'direccion', email = 'correo', phone = '3333333', codpostal = 'sample';
      
 /*
 ACTUALIZAR PASSWORD

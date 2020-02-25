@@ -59,13 +59,21 @@ class Router{
             
 
 
+            if($_POST['ruta'] == 'userdelete')
+            {
+             $controlador->load_view('users_delete');
+            }
 
-
-            if($_POST['ruta'] == 'editar')
+            if($_POST['ruta'] == 'usereditar')
             {
              $controlador->load_view('users_edit');
             }
 
+            if($_POST['ruta'] == 'user_add')
+            {
+              $controlador->load_view('user_add');
+            }
+          
           
             switch($this->route)
             {
@@ -81,15 +89,7 @@ class Router{
                           
                       $controlador->load_view('users');
                     
-                     
-                      if($_POST['ruta'] == 'users_add')
-                      {
-                        $controlador->load_view('users_add');
-                      }
-                      if($_POST['ruta'] == 'users_delete')
-                      {
-                       $controlador->load_view('users_delete');
-                      }
+               
                      
                     break;
 

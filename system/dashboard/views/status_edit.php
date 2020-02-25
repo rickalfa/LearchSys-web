@@ -12,6 +12,9 @@ $role_user = $_SESSION['role'];
     if($_POST['crud'] != 'set')
     {
         $statusId =  $Status_controller->get($_POST['status_id']);
+
+        print_r($statusId);
+
         if( empty($statusId))
         {
           printf('Hola como estas ?, Error no Existe el status_id  %s <br> 
@@ -73,10 +76,7 @@ $role_user = $_SESSION['role'];
         <a class = "btn btn-danger" href="status">Volver</a>
         ';
         printf($template,$_POST['status']);
-
-       
-       
-
+        
     }
 
 ?>

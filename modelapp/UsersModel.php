@@ -49,26 +49,27 @@ class UsersModel extends Model {
      * METODOS abstractos de la clase padre CRUD 
      */
 
-    public function create($status_data = array() ){
+    public function create($user_data = array() ){
 
-        foreach($status_data as $key => $value){
+        foreach($user_data as $key => $value){
           /////  $$key  variables de variables
           ///http://php.net/manual/es/language.variables.variable.phphttp://php.net/manual/es/language.variables.variable.php
           $$key = $value;
              
         }
 
-        $this->query = "INSERT INTO user_status (status) VALUES ( '$status' )";
+        $this->query = "INSERT INTO users (name, secondname, statu, addres, country, email, role, phone)
+         VALUES ('$name', '$secondname', '$statu', '$addres', '$country', '$email', '$role', '$phone')";
 
         $this->setQuery();
 
     }
 
-    public function read( $status_id = '' ){
+    public function read( $user_id = '' ){
 
-        $this->query = ($status_id != '')
-         ? "SELECT * FROM user_status WHERE status_id = $status_id "
-         : "SELECT * FROM user_status" ;
+        $this->query = ($user_id != '')
+         ? "SELECT * FROM users WHERE user_id = $user_id "
+         : "SELECT * FROM users" ;
 
          $this->getQuery();
 
@@ -99,7 +100,14 @@ class UsersModel extends Model {
                
           }
   
-          $this->query = "UPDATE users  SET name = '$name' WHERE user_id = $user_id";
+          $this->query = "UPDATE users SET name = '$name',
+           secondname = '$secondname',
+           country = '$country',
+           addres = '$addres',
+           codpostal = '$codpostal',
+           email ='$email',
+           phone = '$phone',
+           role = '$role' WHERE user_id = $user_id";
   
           $this->setQuery();
   
@@ -133,10 +141,10 @@ class UsersModel extends Model {
 
     }
 
-    public function get($user = '' ){
+    public function get($user_id = '' ){
 
-        $this->query = ($user != '')
-         ? "SELECT * FROM users WHERE name = '$user' "
+        $this->query = ($user_id != '')
+         ? "SELECT * FROM users WHERE user_id = $user_id "
          : "SELECT * FROM users" ;
 
          $this->getQuery();

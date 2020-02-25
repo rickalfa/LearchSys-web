@@ -17,7 +17,6 @@ if( empty($users_table))
            <thead>
             <tr>
               <th>id Usuario</th>
-              <th>User name</th>
               <th>Status</th>
               <th>name</th>
               <th>second name</th>
@@ -25,10 +24,11 @@ if( empty($users_table))
               <th>Phone</th>
               <th>Addres </th>
               <th>country</th>
+              <th>Role</th>
               <th colspan = "2">
               <form method = "POST" >
-              <input type = "hidden" name ="ruta" value = "user_add">
-               <input type = "button" class = "btn btn-secondary" value = "Add new user">
+               <input type = "hidden" name ="ruta" value = "user_add">
+               <input type = "submit" class = "btn btn-secondary" value = "Add new user">
               </form>
              </th>
             </tr>
@@ -40,7 +40,6 @@ if( empty($users_table))
             $template_users .='
            <tr>
              <td>'.$users_table[$n]['user_id'].'</td>
-             <td>'.$users_table[$n]['name'].'</td>
              <td>'.$users_table[$n]['statu'].'</td>
              <td>'.$users_table[$n]['name'].'</td>
              <td>'.$users_table[$n]['secondname'].'</td>
@@ -48,10 +47,11 @@ if( empty($users_table))
              <td>'.$users_table[$n]['phone'].'</td>
              <td>'.$users_table[$n]['addres'].'</td>
              <td>'.$users_table[$n]['country'].'</td>
+             <td>'.$users_table[$n]['role'].'</td>
 
              <td>
              <form method = "POST" >
-             <input type = "hidden" name ="ruta" value = "editar">
+             <input type = "hidden" name ="ruta" value = "usereditar">
              <input type = "hidden" name ="user_id" class = "btn btn-secondary" value = "' .$users_table[$n]['user_id'].'">
              <input type = "submit" class = "btn btn-info" value = "Edit">
              
@@ -59,9 +59,9 @@ if( empty($users_table))
 
              <td>
              <form method = "POST" >
-              <input type = "hidden" name ="ruta" value = "users_delete">
-              <input type = "button" class = "btn btn-danger" value = "Delete">
+              <input type = "hidden" name ="ruta" value = "userdelete">
               <input type = "hidden" name ="user_id" class = "btn btn-secondary"  value = "' .$users_table[$n]['user_id'].'">
+              <input type = "submit" class = "btn btn-danger" value = "Delete">
              </form>
              
              </td>
