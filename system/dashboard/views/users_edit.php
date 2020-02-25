@@ -18,7 +18,8 @@ printf($mensaje,$curret_ruta , $role_user, $user_id);
 
     if($_POST['crud'] != 'set')
     {
-        $userDatId =  $user_controller->get($_POST['user_id']);
+        $userDatId =  $user_controller->get($user_id);
+
         if( empty($userDatId))
         {
           printf('Hola como estas ?, Error no Existe el user_id  %s <br> 
@@ -32,10 +33,17 @@ printf($mensaje,$curret_ruta , $role_user, $user_id);
            <form method = "POST" >
            <input type = "text" placeholder = "user_id" value = "%s" disabled required>
            <input type = "hidden" name ="user_id" value = "%s">
-
            <input type = "text" name ="name" placeholder = "name user" value = "%s" required>
+           
+           </br>
 
+           <input type = "text" placeholder = "name user" value = "%s" disabled required>
+           <input type = "hidden" name ="name" value = "%s">
+           <input type = "text" name ="name" placeholder = "new name " value = "%s" required>
            <input  type = "submit"  class = "btn btn-secondary" value = "Editar">
+
+
+
            <input type = "hidden" name ="ruta" value = "users_edit">
            <input type = "hidden" name ="crud" value = "set">
            </form>
@@ -43,9 +51,17 @@ printf($mensaje,$curret_ruta , $role_user, $user_id);
 
             printf(
             $template_user,
+             
+            $userDatId[0]['user_id'],
+          
             $userDatId[0]['user_id'],
             $userDatId[0]['user_id'],
+            
+            
+            $userDatId[0]['name'],
+            $userDatId[0]['name'],
             $userDatId[0]['name']
+            
             );
 
             }
