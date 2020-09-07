@@ -3,7 +3,7 @@
 class ViewController{
 
     private static $view_path = './views/';
-
+    private static $menu_path = './views/menu_nav/';
 
     /**
      * Constructor de la clase router
@@ -12,9 +12,17 @@ class ViewController{
 
     }
 
+      /**
+     * Destructor de la clase Autoload
+     */
+
+    public function __destruct(){
+
+    }
+
     public function load_view_menu($view){
 
-        require_once( self::$view_path . $view . '.php');
+        require_once( self::$menu_path . $view . '.php');
 
     }
 
@@ -28,13 +36,7 @@ class ViewController{
         require_once( self::$view_path . 'footer.php');
     }
 
-    /**
-     * Destructor de la clase Autoload
-     */
-
-    public function __destruct(){
-
-    }
+  
 
 
 

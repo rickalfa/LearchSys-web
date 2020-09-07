@@ -3,7 +3,6 @@
 
 class Autoload{
 
- 
     /**
      * Constructor de la clase Autoload
      */
@@ -16,9 +15,8 @@ class Autoload{
             $models_path = './modelapp/'.$class_name.'.php';
             $controllers_path = './controllers/'.$class_name.'.php';
             $controllers_dashboard_path = './system/dashboard/controllers/'.$class_name.'.php';
+           
 
-
-            
             if(file_exists($controllers_dashboard_path)){
                 require_once($controllers_dashboard_path);
  
@@ -37,6 +35,8 @@ class Autoload{
     
                echo "<p>'desde AUTOLOAD '.$controllers_path</p>";
             }
+           
+
 
         });
 

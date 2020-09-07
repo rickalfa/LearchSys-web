@@ -8,7 +8,7 @@ RewriteBase /Learchsys/Learchsys-web
 RewriteCond %{SCRIPT_FILENAME} !-d
 RewriteCond %{SCRIPT_FILENAME} !-f
 
-RewriteRule ^(.*)$ index.php?ruta=$1 [L] 
+RewriteRule ^([a-zA-Z0-9/]+)$ index.php?ruta=$1 [NC,L] 
 
 # supress php errors
 php_flag display_startup_errors on

@@ -1,0 +1,6 @@
+
+
+This version of PHPMailer is 5.2-stable
+
+
+https://github.com/PHPMailer/PHPMailer/tree/5.2-stable
