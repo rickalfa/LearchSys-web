@@ -1,4 +1,6 @@
 <?php
+
+
 require_once('Router.php');
 
 // clase control de flujo de la Aplicacion learch MCVM 
@@ -42,7 +44,7 @@ class AppController{
 
         /// Inicializamos la app apartir de aqui 
         /// haciendo el primer llamado a router
-        $this->routerApp->initRouter($this->url);
+        $this->routerApp->initRouter();
         
         
 

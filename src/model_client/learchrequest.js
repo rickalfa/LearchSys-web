@@ -59,7 +59,7 @@ export class LearchRequest
 
 
 
-export function helloServer( pathre,senddat)
+export function helloServer(pathre,senddat)
 {
     var objre = new XMLHttpRequest();
 

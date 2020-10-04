@@ -1,6 +1,8 @@
 <?php
 
-require_once('./modelapp/UsersModel.php');
+require_once('../modelapp/UsersModel.php');
+
+echo "nombre de la clase ejecutada :".__CLASS__;
 
 class SessionController
 {

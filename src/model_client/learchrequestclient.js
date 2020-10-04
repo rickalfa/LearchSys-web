@@ -20,17 +20,26 @@ function showDates(e)
 
     let dateemail = document.learchform.elements[0].value;
 
+    let nameinput = document.learchform.elements[0].name;
+
     let datepass = document.learchform.elements[1].value;
     
     showresult.innerHTML = '<h4> resultado submit activado <br>email user' +dateemail +'<br>'+datepass+ '</h4>';
 
     console.log('boton activado');
 
-    let emailpost = "email="+ dateemail;
+    //transformar un array js en  json con el metodo parse
+    let datespost = [nameinput, dateemail, "password",datepass];
 
+    let datespre = "{"+ datespost+"}";
+
+
+    document.getElementById("showdate-2").innerHTML = datespost;
+    
+    document.getElementById("showdate-3").innerHTML = datespre;
     
 
-    //helloServer('././service/learchRequestSession.php',emailpost)
+   // helloServer('././service/learchRequestSession.php',emailpost)
 
     //'././service/learchRequestSession.php'
 
@@ -53,5 +62,5 @@ function dateshow()
 
 }
 
-//let Reajx = new XMLHttpRequest;
+
 
