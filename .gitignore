@@ -1,3 +1,4 @@
 .vs
 .htacces
 modelapp/Model.php
+vendor/*
