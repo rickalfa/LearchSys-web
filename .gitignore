@@ -2,3 +2,5 @@
 .htacces
 modelapp/Model.php
 vendor/*
+composer.jon
+composer.lock

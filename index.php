@@ -6,9 +6,11 @@ require_once('controllers/AppController.php');
 
 $autoload = new Autoload();
 
+
+//redirecionamos el sitio por default a home/main
 $route = isset($_GET['ruta']) ? $_GET['ruta']: 'home/main';
 
-$route2param = $_GET['ruta'];
+//$route2param = $_GET['ruta'];
 
 echo 'la ruta de dos paramatros es : '.$route2param . ' --- ';
 
@@ -16,6 +18,7 @@ echo 'la ruta de dos paramatros es : '.$route2param . ' --- ';
 
 $AppLearch = new AppController($route);
 
+//inicializacion de la app 
 $AppLearch->intitApp();
 
 

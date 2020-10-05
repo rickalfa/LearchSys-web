@@ -6,7 +6,8 @@
  <div class = "col-md-6 ">
 
 <p id="showdate"></p>
-<p id="showdate-request"></p>
+<p id="showdate-2"></p>
+<p id="showdate-3"></p>
 
  <h1>login user</h1>
   <form id="learch_form" name="learchform">

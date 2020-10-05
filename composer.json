@@ -1,0 +1,11 @@
+{
+
+    "name" :"homage-studio/learchsys",
+    "description":"app web",
+    "require": {
+        "dompdf/dompdf":"0.8"
+    }
+
+
+
+}
