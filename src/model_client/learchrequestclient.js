@@ -3,7 +3,7 @@
 
 
 import './learchrequest.js';
-import { helloServer, LearchRequest } from './learchrequest.js';
+import { helloServer, LearchRequest, hellojson } from './learchrequest.js';
 
 
 /// LOGIN USER 
@@ -37,9 +37,19 @@ function showDates(e)
     document.getElementById("showdate-2").innerHTML = datespost;
     
     document.getElementById("showdate-3").innerHTML = datespre;
+
+    const  dates = {
+
+        useremail: dateemail,
+        pass: datepass 
+
+    }
     
 
    // helloServer('././service/learchRequestSession.php',emailpost)
+   hellojson('././service/learchRequestSession.php',JSON.stringify(dates))
+
+
 
     //'././service/learchRequestSession.php'
 
