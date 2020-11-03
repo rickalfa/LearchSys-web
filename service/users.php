@@ -30,9 +30,9 @@ else
      echo 'datos recividos al servidor, email del user : '.$useremail. '<br>';
      echo ' arreglo transformado en json '.$datjson. '<br>';
      var_dump($dateuser);
-     echo ' <br>'.$dateuser['useremail'].' tamaño del arreglo : '.count($dateuser);
-     echo ' estado del usuario '.$statelogin.'<br>';
-     var_dump($statelogin);
+     //echo ' <br>'.$dateuser.' tamaño del arreglo : '.count($dateuser);
+     echo ' estado del usuario :'.$statelogin.'<br>';
+     var_dump($sessionlog->getDatesUser());
 }
 
 
