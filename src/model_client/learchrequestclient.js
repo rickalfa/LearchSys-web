@@ -48,7 +48,7 @@ function sendDatesRequest(e)
     
 
    // helloServer('././service/learchRequestSession.php',emailpost)
-   hellojson('././service/learchRequestSession.php',JSON.stringify(dates))
+   hellojson('././service/users.php',JSON.stringify(dates))
 
    
 }

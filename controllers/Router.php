@@ -27,23 +27,23 @@ class Router{
     public function initRouter()
     {
 
-       // if( !isset($_SESSION) )
-       // {
-       //     
-       //     echo "<p>CREACION DE USUARIO</p>";
-//
-       //     ///Parametro de la funcion  session_start. Documentacion
-       //     ///http://php.net/manual/es/session.configuration.php
-       //     ///Buscar opciones en el archivo PHP.ini
-       //     session_start([
-       //         'use_only_cookies' => 1,
-       //         'auto_start' => 1,
-       //         'read_and_close' => true
-       //      ]);
-       //         
-//
-       // }
-       //
+        if( !isset($_SESSION) )
+        {
+            
+            echo "<p>CREACION DE USUARIO</p>";
+
+            ///Parametro de la funcion  session_start. Documentacion
+            ///http://php.net/manual/es/session.configuration.php
+            ///Buscar opciones en el archivo PHP.ini
+            session_start([
+                'use_only_cookies' => 1,
+                'auto_start' => 1,
+                'read_and_close' => true
+             ]);
+                
+
+        }
+       
 
                 echo 'route Init class name : '. __CLASS__;
 
@@ -86,12 +86,12 @@ class Router{
                         break;
 
                     case 'login':
-                        $controlador->load_view('login');
-                       break;    
+                         $controlador->load_view('login');
+                        break;    
     
                     case 'salir':
-                         $user_session = new SessionController();
-                         $user_session->logout();
+                       
+                         $controlador->load_view('salir');
                         break;
     
                     default:
@@ -99,14 +99,10 @@ class Router{
     
                         break;
                  }
-    
-        
-                ///Datos del usuario
-                ///print_r($_SESSION);
 
                 }
 
-       static function filterUri($uriReq)
+       private function filterUri($uriReq)
        {
            $urilfil = explode('/', $uriReq);
 
