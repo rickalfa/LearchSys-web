@@ -9,10 +9,10 @@ import { helloServer, LearchRequest, hellojson } from './learchrequest.js';
 /// LOGIN USER 
 var formlearch = document.getElementById('learch_form');
 
-formlearch.addEventListener('submit', showDates);
+formlearch.addEventListener('submit', sendDatesRequest);
 
 
-function showDates(e)
+function sendDatesRequest(e)
 {
     e.preventDefault();
 
@@ -31,13 +31,14 @@ function showDates(e)
     //transformar un array js en  json con el metodo parse
     let datespost = [nameinput, dateemail, "password",datepass];
 
-    let datespre = "{"+ datespost+"}";
+    
 
 
     document.getElementById("showdate-2").innerHTML = datespost;
     
-    document.getElementById("showdate-3").innerHTML = datespre;
+    document.getElementById("showdate-3").innerHTML = '#';
 
+    // Json para envio de los datos Login 
     const  dates = {
 
         useremail: dateemail,
@@ -48,10 +49,6 @@ function showDates(e)
 
    // helloServer('././service/learchRequestSession.php',emailpost)
    hellojson('././service/learchRequestSession.php',JSON.stringify(dates))
-
-
-
-    //'././service/learchRequestSession.php'
 
    
 }
