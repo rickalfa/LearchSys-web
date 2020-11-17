@@ -14,7 +14,8 @@ formlearch.addEventListener('submit', sendDatesRequest);
 
 function sendDatesRequest(e)
 {
-    e.preventDefault();
+    // hacemos que el evento recarge por defecto la pagina 
+    //e.preventDefault();
 
     let showresult = document.getElementById('showdate');
 
@@ -31,8 +32,6 @@ function sendDatesRequest(e)
     //transformar un array js en  json con el metodo parse
     let datespost = [nameinput, dateemail, "password",datepass];
 
-    
-
 
     document.getElementById("showdate-2").innerHTML = datespost;
     
@@ -48,8 +47,9 @@ function sendDatesRequest(e)
     
 
    // helloServer('././service/learchRequestSession.php',emailpost)
-   hellojson('././service/users.php',JSON.stringify(dates))
+   hellojson('././service/users.php',JSON.stringify(dates),false)
 
+   
    
 }
 

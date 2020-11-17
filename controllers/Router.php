@@ -44,7 +44,6 @@ class Router{
 
         }
        
-
                 echo 'route Init class name : '. __CLASS__;
 
                ///formulario de autenticacion si no esta validada la autenticacion
@@ -86,11 +85,19 @@ class Router{
                         break;
 
                     case 'login':
-                         $controlador->load_view('login');
+                        session_start();
+                        if ($_SESSION['ok']) {
+                            # code...
+                            $controlador->load_view('home/main');
+                        }else
+                        {
+                            $controlador->load_view('login');
+
+                        }
+                         
                         break;    
     
                     case 'salir':
-                       
                          $controlador->load_view('salir');
                         break;
     

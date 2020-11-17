@@ -3,7 +3,6 @@
 
    require('././controllers/config/configapp.php');
 
-
    echo ROOTPROJECT;
 
  ///NAVEGATION MENU User No logger
@@ -12,7 +11,7 @@ session_start();
 if(!$_SESSION['ok'])
       {
         echo '
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark" >
 
  <a class="navbar-brand" href="#">LearchSys</a>
 
@@ -32,19 +31,24 @@ if(!$_SESSION['ok'])
     </li>
     <li class="nav-item">
       <a class="nav-link" href="'.ROOTPROJECT.'member">Members</a>
-    </li>
-    <li class="nav-item">
-       <a class="nav-link" href="'.ROOTPROJECT.'login">Login</a>
-    </li>
-      
+    </li>  
   </ul>
+
+  <i class="fas fa-angle-down"></i>
+  <li  class="nav-item fas fa-user-circle ">
+    <a href="'.ROOTPROJECT.'login" fal fa-angle-down> Login</a>
+  </li>  
+
+  
+  
+
 </nav> ';
  ///END  NAVEGATION MENU  NO logger
     }else
     {
       ///NAVEGATION MENU User logging
       echo '
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
+      <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark" >
       
        <a class="navbar-brand" href="#">LearchSys</a>
       
@@ -65,11 +69,22 @@ if(!$_SESSION['ok'])
           <li class="nav-item">
             <a class="nav-link" href="'.ROOTPROJECT.'member">Members</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="'.ROOTPROJECT.'salir">Logout</a>
-          </li>
-           
-        </ul>
+          </ul>
+
+          <li>
+          <div class="btn-group">
+          <button class="btn btn-success btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            User menu
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">Edit</a>
+            <a class="dropdown-item" href="'.ROOTPROJECT.'salir">Logout</a>
+            
+          </div>
+        </div>
+        </li>
+
+      
       </nav> ';
 
     }

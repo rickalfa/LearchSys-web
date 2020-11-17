@@ -114,7 +114,7 @@ export function helloServer(pathre,senddat)
 
 ////////////////////  send Post JSON
 
-export function hellojson(pathre,senddat)
+export function hellojson(pathre,senddat,optionajx)
 {
     var objre = new XMLHttpRequest();
 
@@ -142,7 +142,7 @@ export function hellojson(pathre,senddat)
             }                                                                          // con ajax el archivo es puesto como argumento en el metodo Open
             else
             {
-                alert("Error : al retornar el estado de la peticion HELLO error 200");
+                console.log("Error : al retornar el estado de la peticion HELLO error 200");
             }
 
         }
@@ -154,7 +154,7 @@ export function hellojson(pathre,senddat)
     //Después de especificar qué pasará al recibir la respuesta es
     // necesario hacer la petición. Para esto se utilizan los métodos open() y send()
     // de la clase HTTP request, como se muestra a continuación:
-    objre.open('POST',pathre,true);
+    objre.open('POST',pathre,optionajx);
 
     objre.setRequestHeader('Content-Type', 'application/json');
       
