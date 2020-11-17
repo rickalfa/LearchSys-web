@@ -2,11 +2,6 @@
 
 require_once('../modelapp/UsersModel.php');
 
-<<<<<<< HEAD
-
-echo "nombre de la clase ejecutada :".__CLASS__;
-=======
->>>>>>> 712598478302c9cec7befbb8d035015ac2e660b3
 
 class SessionController
 {
@@ -22,45 +17,12 @@ class SessionController
      */
     public function __construct(){
         
-<<<<<<< HEAD
-=======
-        echo 'nombre de la clase ejecutada :'. __CLASS__;
-
-        echo "<p>'contructor de la session'</p>";
-
->>>>>>> 712598478302c9cec7befbb8d035015ac2e660b3
         $this->session = new UsersModel();
 
     }
 
     public function login($user, $pass){
 
-<<<<<<< HEAD
-        $done = FALSE;
-
-        //Comprovamos si el usario existe validando sus datos 
-        $dateuser =  $this->session->validateUser($user, $pass);
-
-         if($dateuser[0] == NULL)
-         {
-            $done = FALSE;
-
-          
-         }
-         else
-         {
-            $done = TRUE;
-           
-            
-            $this->createSession($dateuser);
-
-
-         }
-
-        return $done;
-
-
-=======
 
         $this->datesuser = $this->session->validateUser($user, $pass);
 
@@ -79,7 +41,6 @@ class SessionController
             return true;
 
         }
->>>>>>> 712598478302c9cec7befbb8d035015ac2e660b3
 
     }
 

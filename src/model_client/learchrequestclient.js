@@ -12,7 +12,10 @@ var formlearch = document.getElementById('learch_form');
 formlearch.addEventListener('submit', sendDatesRequest);
 
 
-function sendDatesRequest(e)
+
+
+/// SEND JSON DATES LOGIN 
+export function sendDatesRequest(e)
 {
     e.preventDefault();
 
@@ -30,8 +33,6 @@ function sendDatesRequest(e)
 
     //transformar un array js en  json con el metodo parse
     let datespost = [nameinput, dateemail, "password",datepass];
-
-    
 
 
     document.getElementById("showdate-2").innerHTML = datespost;
@@ -53,6 +54,14 @@ function sendDatesRequest(e)
    
 }
 
+///SEND JSON DATES  REGISTER NEW USER
+function sendRegisteruser(e)
+{
+    e.preventDefault();
+
+    console.log('action send dates register');
+
+}
 
 
 function requestDat(datessend)

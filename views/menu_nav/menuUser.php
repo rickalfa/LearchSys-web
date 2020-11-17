@@ -33,11 +33,18 @@ if(!$_SESSION['ok'])
     <li class="nav-item">
       <a class="nav-link" href="'.ROOTPROJECT.'member">Members</a>
     </li>
-    <li class="nav-item">
-       <a class="nav-link" href="'.ROOTPROJECT.'login">Login</a>
-    </li>
-      
+  
   </ul>
+
+
+  <li class="nav-item">
+  <a class="nav-link" href="'.ROOTPROJECT.'login">Login</a>
+  </li>
+  <li class="nav-item">
+  <a class="nav-link" href="'.ROOTPROJECT.'register">Register</a>
+  </li>
+
+
 </nav> ';
  ///END  NAVEGATION MENU  NO logger
     }else

@@ -5,7 +5,7 @@
   </body>
  </div>
 
- <script type="text/javascript" src="./src/model_client/learchjquery.js"></script>
+ <script type="module" src="./src/model_client/learchjquery.js"></script>
  <script type="module" src="./src/model_client/learchrequestclient.js"></script>
  <script type="module" src="./src/model_client/learchrequest.js"></script>
  
