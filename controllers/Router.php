@@ -62,6 +62,7 @@ class Router{
 
                    //$controlador->load_view($this->route);
 
+
                 switch($this->route)
                 {
                     case 'home/main':                  
@@ -100,6 +101,11 @@ class Router{
                     case 'salir':
                          $controlador->load_view('salir');
                         break;
+
+                    case 'register':
+                       
+                            $controlador->load_view('register');
+                           break;
     
                     default:
                          $controlador->load_view('error/error404');

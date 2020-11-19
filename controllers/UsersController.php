@@ -4,7 +4,7 @@
  */
 
 
- require('./modelapp/UsersModel.php');
+ require('../modelapp/UsersModel.php');
 
  
  Class UsersController{

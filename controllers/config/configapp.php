@@ -3,7 +3,7 @@
 
 // Path root project 
 
-const ROOTPROJECT = "http://localhost/Learchsys/LearchSys-web/";
+const ROOTPROJECT = "http://localhost/LearchSys-web/";
 
 
 

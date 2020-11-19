@@ -3,11 +3,9 @@
 require_once('../modelapp/UsersModel.php');
 
 
-
 class SessionController
 {
 
-    
 
     private $session;
     private $datesuser;
@@ -18,40 +16,30 @@ class SessionController
      */
     public function __construct(){
         
-        echo 'nombre de la clase ejecutada :'. __CLASS__;
-
-        echo "<p>'contructor de la session'</p>";
-
         $this->session = new UsersModel();
 
     }
 
     public function login($user, $pass){
 
-        $done = FALSE;
 
-        //Comprovamos si el usario existe validando sus datos 
-        $dateuser =  $this->session->validateUser($user, $pass);
+        $this->datesuser = $this->session->validateUser($user, $pass);
 
-         if($dateuser[0] == NULL)
-         {
-            $done = FALSE;
+        if ($this->datesuser[0] == NULL) {
 
-          
-         }
-         else
-         {
-            $done = TRUE;
-           
-            
-            $this->createSession($dateuser);
+            return false;
+        
+        }
+        else
+        {
+            /// Creamos la session en caso de que el login se exitoso y retornamos true
+            session_start();
+            $_SESSION['ok'] = true;
 
 
-         }
+            return true;
 
-        return $done;
-
-
+        }
 
     }
 

@@ -58,8 +58,8 @@ class UsersModel extends Model {
              
         }
 
-        $this->query = "INSERT INTO users (name, secondname, statu, addres, country, email, role, phone)
-         VALUES ('$name', '$secondname', '$statu', '$addres', '$country', '$email', '$role', '$phone')";
+        $this->query = "INSERT INTO users (name, secondname, pass, statu, addres, country, email, role, phone)
+         VALUES ('$name', '$secondname','$pass', '$statu', '$addres', '$country', '$email', '$role', '$phone')";
 
         $this->setQuery();
 

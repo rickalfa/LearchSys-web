@@ -6,16 +6,57 @@ import './learchrequest.js';
 import { helloServer, LearchRequest, hellojson } from './learchrequest.js';
 
 
+/******************************************************************************
+ * 
+ * Request Login user
+ * 
+ * 
+ * 
+ * 
+ */
 /// LOGIN USER 
 var formlearch = document.getElementById('learch_form');
 
-formlearch.addEventListener('submit', sendDatesRequest);
+
+//agregamos evento en caso que no sea NULL 
+if (formlearch != null)
+{
+    console.log(" no es null ");
+    formlearch.addEventListener('submit', sendDatesRequest);
+    
+}else{
+    console.log("elemento id no encontrado");
+
+}
+/******************************************************************************
+ * 
+ * Request Resgister user
+ * 
+ * 
+ */
+
+/// REGISTER USER
+var formregister = document.getElementById('formlearch_register');
+
+if (formregister != null)
+{
+
+    console.log("elemento form encontrado Id")
+    formregister.addEventListener('submit', sendRegisteruser);
+
+    
+}else{
+
+    console.log("elemento form NULL")
+
+}
 
 
-function sendDatesRequest(e)
+/// SEND JSON DATES LOGIN 
+export function sendDatesRequest(e)
 {
     // hacemos que el evento recarge por defecto la pagina 
-    //e.preventDefault();
+    e.preventDefault();
 
     let showresult = document.getElementById('showdate');
 
@@ -47,12 +88,40 @@ function sendDatesRequest(e)
     
 
    // helloServer('././service/learchRequestSession.php',emailpost)
-   hellojson('././service/users.php',JSON.stringify(dates),false)
+   hellojson('././service/sessionusers.php',JSON.stringify(dates),false)
 
    
    
 }
 
+///SEND JSON DATES  REGISTER NEW USER
+export function sendRegisteruser(e)
+{
+    e.preventDefault();
+
+    console.log('action send dates register');
+
+    let username = document.formlearch_register.elements[0].value;
+
+    let userpass = document.formlearch_register.elements[1].value;
+
+    let useremail = document.formlearch_register.elements[2].value;
+
+    console.log('user name :  '+username+ ' pass user : '+ userpass + ' user email : '+ useremail);
+
+    const dateaduser = {
+
+        name: username,
+        pass: userpass,
+        email: useremail
+
+    }
+
+    hellojson('././service/users.php',JSON.stringify(dateaduser),false)
+
+
+
+}
 
 
 function requestDat(datessend)

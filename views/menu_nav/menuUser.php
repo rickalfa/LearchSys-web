@@ -31,16 +31,18 @@ if(!$_SESSION['ok'])
     </li>
     <li class="nav-item">
       <a class="nav-link" href="'.ROOTPROJECT.'member">Members</a>
-    </li>  
+    </li>
+  
   </ul>
 
-  <i class="fas fa-angle-down"></i>
-  <li  class="nav-item fas fa-user-circle ">
-    <a href="'.ROOTPROJECT.'login" fal fa-angle-down> Login</a>
-  </li>  
-
-  
-  
+  <ul class="navbar-nav mr-auto mt-2 ">
+    <li class="nav-item">
+    <a class="nav-link" href="'.ROOTPROJECT.'login">Login</a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link" href="'.ROOTPROJECT.'register">Register</a>
+    </li>
+  </ul>
 
 </nav> ';
  ///END  NAVEGATION MENU  NO logger

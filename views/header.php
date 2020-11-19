@@ -22,7 +22,6 @@
 
          <link rel="stylesheet" href = "./fontawesome-free-web/css/all.css"
 
-       
          <link rel="stylesheet" href = "./public/bootstrap/js/bootstrap.js"
          <link rel="stylesheet" href="./public/css/estilo_basic.css">
          <link rel="stylesheet" href="./public/css/estilo_dashboard.css">
