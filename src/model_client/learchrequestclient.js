@@ -53,7 +53,7 @@ if (formregister != null)
 
 
 /// SEND JSON DATES LOGIN 
-export function sendDatesRequest(e)
+function sendDatesRequest(e)
 {
     // hacemos que el evento recarge por defecto la pagina 
     e.preventDefault();
@@ -88,14 +88,14 @@ export function sendDatesRequest(e)
     
 
    // helloServer('././service/learchRequestSession.php',emailpost)
-   hellojson('././service/sessionusers.php',JSON.stringify(dates),false)
+   hellojson('././service/sessionusers.php',JSON.stringify(dates),loginAction)
 
    
    
 }
 
 ///SEND JSON DATES  REGISTER NEW USER
-export function sendRegisteruser(e)
+function sendRegisteruser(e)
 {
     e.preventDefault();
 
@@ -123,6 +123,13 @@ export function sendRegisteruser(e)
 
 }
 
+function loginAction(dates)
+{
+
+    console.log("datos del serviodr reuest login : " + dates);
+
+
+}
 
 function requestDat(datessend)
 {

@@ -114,7 +114,7 @@ export function helloServer(pathre,senddat)
 
 ////////////////////  send Post JSON
 
-export function hellojson(pathre,senddat,optionajx)
+export function hellojson(pathre,senddat,callback)
 {
     var objre = new XMLHttpRequest();
 
@@ -137,8 +137,8 @@ export function hellojson(pathre,senddat,optionajx)
         {
             if ( objre.status == 200) {
                
-               alert("acceso a archivo :" + pathre);  
-             document.getElementById('showdate-request').innerHTML = objre.responseText; //esta metodo nos retorno el archivo el cual estamos accediendo
+                 alert("acceso a archivo :" + pathre);  
+                document.getElementById('showdate-request').innerHTML = objre.responseText; //esta metodo nos retorno el archivo el cual estamos accediendo
             }                                                                          // con ajax el archivo es puesto como argumento en el metodo Open
             else
             {
@@ -154,10 +154,18 @@ export function hellojson(pathre,senddat,optionajx)
     //Después de especificar qué pasará al recibir la respuesta es
     // necesario hacer la petición. Para esto se utilizan los métodos open() y send()
     // de la clase HTTP request, como se muestra a continuación:
-    objre.open('POST',pathre,optionajx);
+    objre.open('POST',pathre);
 
     objre.setRequestHeader('Content-Type', 'application/json');
       
+    objre.onload = function()
+    {
+
+      let dates = objre.responseText;
+
+      callback(dates);
+
+    }
      
       //El parámetro en el método send()puede ser cualquier
       // información que se quiera enviar al servidor si se usa POST 

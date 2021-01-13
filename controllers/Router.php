@@ -36,7 +36,7 @@ class Router{
             ///http://php.net/manual/es/session.configuration.php
             ///Buscar opciones en el archivo PHP.ini
             session_start([
-                'use_only_cookies' => 1,
+                'use_only_cookies' => 2,
                 'auto_start' => 1,
                 'read_and_close' => true
              ]);
