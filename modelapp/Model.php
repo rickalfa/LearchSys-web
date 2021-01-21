@@ -11,7 +11,7 @@ abstract class Model {
  private static $db_user = 'root';
  private static $db_pass = '';
  private static $db_charset = 'utf8';
- private static $db_name = 'u967648059_test';
+ private static $db_name = 'u837635642_db_learchsys';
 
  private $conn;
  

@@ -3,7 +3,7 @@
 
 
 import './learchrequest.js';
-import { helloServer, LearchRequest, hellojson } from './learchrequest.js';
+import { helloServer, LearchRequest, hellojson, helloAjax } from './learchrequest.js';
 
 
 /******************************************************************************
@@ -73,10 +73,7 @@ function sendDatesRequest(e)
     //transformar un array js en  json con el metodo parse
     let datespost = [nameinput, dateemail, "password",datepass];
 
-
     document.getElementById("showdate-2").innerHTML = datespost;
-    
-    document.getElementById("showdate-3").innerHTML = '#';
 
     // Json para envio de los datos Login 
     const  dates = {
@@ -88,9 +85,11 @@ function sendDatesRequest(e)
     
 
    // helloServer('././service/learchRequestSession.php',emailpost)
-   hellojson('././service/sessionusers.php',JSON.stringify(dates),loginAction)
+   hellojson('././service/sessionusers.php',JSON.stringify(dates),loginAction);
 
-   
+   //helloAjax('././service/sessionusers.php',JSON.stringify(dates),loginAction);
+
+  
    
 }
 
@@ -126,8 +125,8 @@ function sendRegisteruser(e)
 function loginAction(dates)
 {
 
-    console.log("datos del serviodr reuest login : " + dates);
-
+    console.log("datos del servidor request login : " + dates);
+    
 
 }
 

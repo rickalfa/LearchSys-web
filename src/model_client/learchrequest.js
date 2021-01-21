@@ -57,8 +57,6 @@ export class LearchRequest
 
 }
 
-
-
 export function helloServer(pathre,senddat)
 {
     var objre = new XMLHttpRequest();
@@ -124,7 +122,7 @@ export function hellojson(pathre,senddat,callback)
     // la cabecera mime de tipo XML. En ese caso es posible usar un método
     // extra que sobreescriba la cabecera enviada por el servidor, 
     //en caso que no sea text/xml.
-    objre.overrideMimeType('text/xml');
+    //objre.overrideMimeType('text/xml');
 
     //PASO  2 nro
     //Es importante notar que no hay paréntesis después del nombre
@@ -137,12 +135,16 @@ export function hellojson(pathre,senddat,callback)
         {
             if ( objre.status == 200) {
                
-                 alert("acceso a archivo :" + pathre);  
-                document.getElementById('showdate-request').innerHTML = objre.responseText; //esta metodo nos retorno el archivo el cual estamos accediendo
+                 alert("acceso a archivo :" + pathre); 
+
+                 //let datesParce = JSON.parse(objre.response);
+   
+                 
+                  //esta metodo nos retorno el archivo el cual estamos accediendo
             }                                                                          // con ajax el archivo es puesto como argumento en el metodo Open
             else
             {
-                console.log("Error : al retornar el estado de la peticion HELLO error 200");
+                console.log("Error : al retornar el estado de la peticion HELLO error 200 error");
             }
 
         }
@@ -161,9 +163,24 @@ export function hellojson(pathre,senddat,callback)
     objre.onload = function()
     {
 
-      let dates = objre.responseText;
+     let dates = objre.response;
 
-      callback(dates);
+     let datesDeco = JSON.stringify(dates);
+
+     //let dateParce = JSON.parse(dates);
+
+    
+     
+      console.log(" datos Json enviados por PHP " + dates[0]); 
+
+      //console.log("datos respuesta : " + dateParce[0]);
+
+      console.log("datos de login : " + datesDeco[1]);
+
+     
+
+
+      callback(datesDeco);
 
     }
      
@@ -175,5 +192,23 @@ export function hellojson(pathre,senddat,callback)
 
 }
 
+export function helloAjax(path, senddat, callback)
+{
+    
+    console.log("peticion ajax");
+    $.ajax({
+        url: path,
+        type: 'POST',
+        data: senddat,
+        dataType: 'JSON',
+        success: function(data){
+            console.log(data);
+            console.log(data.id);   
 
+            callback(data);
+        }
+    });
+
+   
+}
 
