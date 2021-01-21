@@ -11,7 +11,7 @@ session_start();
 if(!$_SESSION['ok'])
       {
         echo '
-<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark" >
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
 
  <a class="navbar-brand" href="#">LearchSys</a>
 
@@ -35,7 +35,7 @@ if(!$_SESSION['ok'])
   
   </ul>
 
-  <ul class="navbar-nav mr-auto mt-2 ">
+  <ul class="navbar-nav  mt-lg-0">
     <li class="nav-item">
     <a class="nav-link" href="'.ROOTPROJECT.'login">Login</a>
     </li>

@@ -1,38 +1,47 @@
         <title>LeachSys-login</title>
 
-     <body>
+     
   <!--FORM SESSION START-->
 <div class = " container">
  <div class = "col-md-6 ">
 
 <p id="showdate"></p>
 <p id="showdate-request"></p>
+<p id="showdate-request-2"></p>
 <p id="showdate-2"></p>
 <p id="showdate-3"></p>
 
  <h1>login user</h1>
   <form id="learch_form" name="learchform">
-  <div class="form-row">
+   <div class="form-row">
     <div class="form-group col-md-6">
-      <label for="inputEmail4">email</label>
-      <input type="email" name = "email" class="form-control" placeholder="Email">
+      <label for="validationDefault01">email</label>
+      <input type="email" name = "email" class="form-control" placeholder="Email" required>
     </div>
 
     <div class="form-group col-md-6">
-      <label for="inputPassword4">Password</label>
-      <input type="password"  name = "pass" class="form-control" placeholder="Password">
+      <label for="validationDefault02">Password</label>
+      <input type="password" class="form-control" placeholder="Password" required>
     </div>
+  
   </div>
   <input type="submit" value="submit" class="btn btn-primary" >
   </form>
 
+   <form id = "form-get" name = "formget">
+
+   <h4> request Get</h4>
+   <div class="form-group col-md-6">
+      <label for="validationDefault01">url Request</label>
+      <input type="text" name = "petition" class="form-control" placeholder="url-request" required>
+    </div>
+   <input type="submit" value="submit" class="btn btn-primary" >
+   </form>
   
-  </div>
-  </div>
+
  </div>
 </div>
 
  <!--END FORM SESSION START-->
 
-     </body>
 

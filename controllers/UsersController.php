@@ -33,6 +33,11 @@
      /**
       * METODOS de la funcion 
       */
+    public function searchemail($email){
+
+        return $this->model->searchemailUser($email);
+
+    }
 
     public function create( $users_data = array() ){
 

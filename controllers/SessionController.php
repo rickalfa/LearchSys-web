@@ -25,7 +25,7 @@ class SessionController
 
         $this->datesuser = $this->session->validateUser($user, $pass);
 
-        if ($this->datesuser[0] == NULL) {
+        if ($this->datesuser[0] == NULL){
 
             return false;
         
@@ -83,4 +83,4 @@ class SessionController
 }
 
 
-?>+
+?>

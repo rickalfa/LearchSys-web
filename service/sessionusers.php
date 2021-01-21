@@ -4,48 +4,62 @@ header('Content-Type: application/json');
 
 require_once('../controllers/SessionController.php');
 
+//require_once('../controllers/MailerController.php');
+
+
 $sessionlog = new SessionController();
+
+//$Emailchek = new MailerController();
 
 
 // adquerimos el tipo de methodo con la que se esta haciendo la request
 $method_request = $_SERVER['REQUEST_METHOD'];
 
-
-
-switch ($method_request) {
+switch($method_request){
    case 'POST':
 
       /// con esta funcion obtenemos el JSON enviado con POST
       $dateuser = json_decode(file_get_contents('php://input'),true);
 
-     
-      if (empty($dateuser)) {
-                    
-
+      if(empty($dateuser)){
+                
         echo 'fallo  en datos de login';
 
-        }else {
+        }else{
 
              ///Create Session from Login Method
-            $statelogin = $sessionlog->login($dateuser['useremail'],$dateuser['pass']);
+          $statelogin = $sessionlog->login($dateuser['useremail'],$dateuser['pass']);
 
-            if ($statelogin) {
+            if($statelogin){
 
-                echo 'exito en crear session';
-            
+                 // Creacion del Json de la respuesta
+                 $Jsonr = array('login'=>"done",
+                 'user'=>"active",
+                 'status'=>"create-session");
+
+               $responselogin = json_encode($Jsonr);               
+               echo $responselogin;
+
             }else{
 
-                echo 'Fallo en crear session';
+               // Creacion del Json de la respuesta
+                $Jsonr = array('login'=>"fail",
+                                  'user'=>"unknow",
+                                'status'=>"no-create");
 
-            }
+                $responselogin = json_encode($Jsonr);               
+                echo $responselogin;
+
+            } 
         }
     
 
 
    break;
 
-
-
+   default:
+      
+   break;
 
 }
 
