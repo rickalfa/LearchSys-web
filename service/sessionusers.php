@@ -3,6 +3,9 @@
 require_once('../controllers/SessionController.php');
 //require_once('../controllers/CookieController.php');
 
+//require_once('../controllers/MailerController.php');
+
+
 $sessionlog = new SessionController();
 
 // adquerimos el tipo de methodo con la que se esta haciendo la request
@@ -15,48 +18,43 @@ switch($method_request){
       $dateuser = json_decode(file_get_contents('php://input'),true);
 
       if(empty($dateuser)){
-                    
+                
         echo 'fallo  en datos de login';
 
         }else{
 
              ///Create Session from Login Method
-             $statelogin = $sessionlog->login($dateuser['useremail'],$dateuser['pass']);
- 
-            //var_dump($statelogin);
+          $statelogin = $sessionlog->login($dateuser['useremail'],$dateuser['pass']);
 
-         
-            
             if($statelogin){
 
-                //$cokielearch = new CookieController();
-                
-                $jsondata = array();
+                 // Creacion del Json de la respuesta
+                 $Jsonr = array('login'=>"done",
+                 'user'=>"active",
+                 'status'=>"create-session");
 
-                $jsondata["success"] = false;
-                $jsondata["data"] = array(
-                            'message' => $database->error
-                        );
-
-                header('Content-type: application/json; charset=utf-8');
-                $jsonres = json_encode($jsondata, JSON_FORCE_OBJECT);
-                                     
-                 //echo json_encode($jsondata, JSON_FORCE_OBJECT);
-            
-                 echo '["apple","orange","banana","strawberry"]';
+               $responselogin = json_encode($Jsonr);               
+               echo $responselogin;
 
             }else{
 
+               // Creacion del Json de la respuesta
+                $Jsonr = array('login'=>"fail",
+                                  'user'=>"unknow",
+                                'status'=>"no-create");
 
-                echo "fallo";
+                $responselogin = json_encode($Jsonr);               
+                echo $responselogin;
 
-            }
+            } 
         }
     
    break;
 
    default:
+      
    break;
-    }
+
+}
 
 ?>

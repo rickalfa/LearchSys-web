@@ -25,10 +25,29 @@ class UsersModel extends Model {
 
     }
 
+    public function searchEmailUser($email)
+    {
+        echo "<p>buscar Usuario por email</p>";
+
+        $this->query = "SELECT * FROM users WHERE email = '$email'";
+
+        $this->getQuery();
+
+        $data = array();
+
+        foreach( $this->rows as $key => $value){
+
+            array_push($data, $value);
+            
+        }
+
+        return $data;
+    }
+
     ///Validacion del usuario
     public function validateUser($email, $pass){
         
-        echo "<p>Validar Usuario</p>";
+        
 
         $this->query = "SELECT * FROM users WHERE email = '$email' AND pass = '$pass' ";
 

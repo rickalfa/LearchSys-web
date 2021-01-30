@@ -2,6 +2,7 @@
 
 
 <p id = "showdate-request"></p>
+<p id = "showdate-request-2"></p>
 <div class="d-flex justify-content-center">
 <form id="formlearch_register" name="formlearch_register">
   <div class="form-row">
@@ -25,6 +26,8 @@
     </div>
   </div>
  
+  <!-- <div class="g-recaptcha" data-sitekey="6Ld3VPIZAAAAAGPTkr63NoKBqaOWuxap4yJJA3cZ"></div> -->
+
   <input type="submit" value="submit" class="btn btn-primary">
 </form>
 </div>

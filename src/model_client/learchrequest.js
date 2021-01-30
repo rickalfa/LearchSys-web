@@ -4,14 +4,25 @@
 
 //'app-learch/controllers/usercontroller.php'
 
+export function datesRespon(dates) {
+
+    console.log("datos de la respuesta a la peticion " + dates);
+    
+}
+
+
 export class LearchRequest
 {
-    constructor(rmethod,urlpath)
+
+    constructor(rmethod, urlpath)
     { 
 
+        
         this.objre = new XMLHttpRequest();
         this.method = rmethod;
         this.path = urlpath;
+        this.datesreq;
+        
     }
 
     actionReadystatechange()
@@ -20,9 +31,7 @@ export class LearchRequest
 
     }
      requestx(){
-
-        this.objre.open(this.method,this.path,true);
-                    this.objre.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+       
          
                     this.objre.onreadystatechange = function()
                     {
@@ -32,7 +41,11 @@ export class LearchRequest
                                
    
                                 //this.actionReadystatechange();
-                             document.getElementById('showdate-request').innerHTML = objre.responseText; //esta metodo nos retorno el archivo el cual estamos accediendo
+                             document.getElementById('showdate-request').innerHTML = this.objre.statusText;
+                              //esta metodo nos retorno el archivo el cual estamos accediendo
+
+                              this.datesreq = this.objre.statusText;
+
                             }                                                                          // con ajax el archivo es puesto como argumento en el metodo Open
                             else
                             {
@@ -43,21 +56,81 @@ export class LearchRequest
                         
                     }
          
+                    this.objre.open(this.method,this.path);
+
+                    this.objre.setRequestHeader('Content-Type', 'application/json');
                  
        }
 
-       requestDates(dates)
+     requestDates(dates)
        {
-           this.requestx();
-           this.objre.send(dates);
+
+        let objre = new XMLHttpRequest();
+
+        objre.onreadystatechange = function()
+        {
+            if(objre.readyState == 4)
+            {
+                if ( objre.status == 200) {
+                   
+
+                    //this.actionReadystatechange();
+                  document.getElementById('showdate-request').innerHTML = objre.statusText;
+                  //esta metodo nos retorno el archivo el cual estamos accediendo
+                  
+                 
+                }                                                                          // con ajax el archivo es puesto como argumento en el metodo Open
+                else
+                {
+                   alert("Error : al retornar el estado de la peticion from class");
+                }
+
+            }
+            
+        }
+
+        objre.open(this.method,this.path);
+
+        objre.setRequestHeader('Content-Type', 'application/json');
+     
+        //// cargamos el metodo que se ejecuta cuando la peticon es exitosa
+        objre.onload = function () {
+            
+            //setdatesreq(objre.responseText);
+
+            //console.log("metodo onload debuelto response text "+ objre.responseText);
+            
+            datesRespon(objre.responseText);
+
+
+                }
+
+        objre.send(dates);
+
+       
+        
    
+       }
+
+       getdatesreq()
+       {
+
+        return this.datesreq;
+           
+       }
+
+       setdatesreq(nudate)
+       {
+           this.datesreq = nudate;
+          
        }
 
        
 
 }
 
-export function helloServer(pathre,senddat)
+/// Rquest ajax GET
+export function helloServerGet(pathre,callBack)
 {
     var objre = new XMLHttpRequest();
 
@@ -81,8 +154,7 @@ export function helloServer(pathre,senddat)
             if ( objre.status == 200) {
                
                alert("acceso a archivo :" + pathre);  
-             document.getElementById('showdate-request').innerHTML = objre.responseText; //esta metodo nos retorno el archivo el cual estamos accediendo
-            }                                                                          // con ajax el archivo es puesto como argumento en el metodo Open
+   }                                                                          // con ajax el archivo es puesto como argumento en el metodo Open
             else
             {
                 alert("Error : al retornar el estado de la peticion HELLO error 200");
@@ -97,24 +169,36 @@ export function helloServer(pathre,senddat)
     //Después de especificar qué pasará al recibir la respuesta es
     // necesario hacer la petición. Para esto se utilizan los métodos open() y send()
     // de la clase HTTP request, como se muestra a continuación:
-    objre.open('POST',pathre,true);
+    objre.open('GET',pathre);
 
     objre.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
       
+     /// accion que se hace si la Peticion es Exitosa
+     objre.onload = function () {
+
+        let dates = objre.responseText;
+
+        console.log("datos peticion get : "+ dates);
+
+        callBack(dates);
+
+     }
      
       //El parámetro en el método send()puede ser cualquier
       // información que se quiera enviar al servidor si se usa POST 
       //para la petición. La información se debe enviar en forma de cadena, 
       //por ejemplo: name=value&anothername=othervalue&so=on
-     objre.send(senddat);
+     objre.send();
 
 }
 
 ////////////////////  send Post JSON
 
-export function hellojson(pathre,senddat,callback)
+export function hellojson(pathre,senddat,mycallback)
 {
-    var objre = new XMLHttpRequest();
+    
+    
+    let objre = new XMLHttpRequest();
 
     //PASO  1 nro
     //Algunas versiones de los navegadores Mozilla
@@ -124,6 +208,8 @@ export function hellojson(pathre,senddat,callback)
     //en caso que no sea text/xml.
     //objre.overrideMimeType('text/xml');
 
+    //objre.responseType = "json";
+               
     //PASO  2 nro
     //Es importante notar que no hay paréntesis después del nombre
     // de la función y no se pasa ningún parámetro. 
@@ -134,81 +220,63 @@ export function hellojson(pathre,senddat,callback)
         if(objre.readyState == 4)
         {
             if ( objre.status == 200) {
-               
-                 alert("acceso a archivo :" + pathre); 
 
-                 //let datesParce = JSON.parse(objre.response);
-   
-                 
-                  //esta metodo nos retorno el archivo el cual estamos accediendo
-            }                                                                          // con ajax el archivo es puesto como argumento en el metodo Open
+               
+               console.log("acceso a archivo :" + pathre);  
+
+             
+            }  // con ajax el archivo es puesto como argumento en el metodo Open
             else
             {
-                console.log("Error : al retornar el estado de la peticion HELLO error 200 error");
+                console.log("Error : al retornar el estado de la peticion HELLO jason error 200");
+             
             }
 
         }
      
     }
 
-    
+
     //PASO  3 nro
     //Después de especificar qué pasará al recibir la respuesta es
     // necesario hacer la petición. Para esto se utilizan los métodos open() y send()
     // de la clase HTTP request, como se muestra a continuación:
     objre.open('POST',pathre);
 
-    objre.setRequestHeader('Content-Type', 'application/json');
-      
-    objre.onload = function()
-    {
+    objre.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+         
+     /// accion que se hace si la Peticion es Exitosa
+    objre.onload = function () {
+            
+        //setdatesreq(objre.responseText);
 
-     let dates = objre.response;
+        //console.log("metodo onload debuelto response text "+ objre.responseText);
+        
+        let dates = objre.responseText;
 
-     let datesDeco = JSON.stringify(dates);
-
-     //let dateParce = JSON.parse(dates);
-
-    
-     
-      console.log(" datos Json enviados por PHP " + dates[0]); 
-
-      //console.log("datos respuesta : " + dateParce[0]);
-
-      console.log("datos de login : " + datesDeco[1]);
-
-     
+        //let datest = JSON.stringify(dates);
+        let datesre = JSON.parse(dates);
 
 
-      callback(datesDeco);
+        console.log("datos de respuesta  : " + datesre);
+        console.log(" dato user del obj " + datesre.user);
+        console.log(" datos del obj " + dates);
+
+
+        mycallback(datesre);
 
     }
-     
+
+
       //El parámetro en el método send()puede ser cualquier
       // información que se quiera enviar al servidor si se usa POST 
       //para la petición. La información se debe enviar en forma de cadena, 
       //por ejemplo: name=value&anothername=othervalue&so=on
+
+ 
      objre.send(senddat);
-
-}
-
-export function helloAjax(path, senddat, callback)
-{
-    
-    console.log("peticion ajax");
-    $.ajax({
-        url: path,
-        type: 'POST',
-        data: senddat,
-        dataType: 'JSON',
-        success: function(data){
-            console.log(data);
-            console.log(data.id);   
-
-            callback(data);
-        }
-    });
 
    
 }
+
 

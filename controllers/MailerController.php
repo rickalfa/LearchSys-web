@@ -16,7 +16,7 @@ public function __construct()
 
 }
 
- public function send_email()
+ public function send_email($emailto)
  {
 
     echo 'Hello email send';
@@ -34,8 +34,8 @@ public function __construct()
         $this->mail->Port       = PORT_EMAIL;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
     
         //Recipients
-        $this->mail->setFrom('rb__samael_@hotmail.es', 'Correo Coorporativo');
-        $this->mail->addAddress('rb__samael_@hotmail.es', 'Fea');     // Add a recipien, Destinatario           // Name is optional
+        $this->mail->setFrom($emailto, 'Correo Coorporativo');
+        $this->mail->addAddress($emailto, 'Fea');     // Add a recipien, Destinatario           // Name is optional
       
         // Attachments
         //$mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
@@ -43,8 +43,18 @@ public function __construct()
     
         // Content
         $this->mail->isHTML(true);                                  // Set email format to HTML
-        $this->mail->Subject = 'Prueba de archivo Config ';
-        $this->mail->Body    = 'Hola saludos desde EdgecodeCorporation <b>como estas </b>';
+        $this->mail->Subject = 'Comprovacion de email  ';
+        $this->mail->Body    = '<html> 
+                                 <body>  
+                                Hola saludos desde EdgecodeCorporation <br>como estas </br> 
+                               <br> siga este link para confirmar su correo <br>
+                               
+                               <a href=" http://eightdeaths.com">link de comprovacion</a> <br>
+                               siga el link de nuestro proyecto 
+                               <a href="http://localhost/LearchSys-web/home/main">link de comprovacion de proyecto </a>
+                                </body> 
+                               </html>';
+
         $this->mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
     
          if(!$this->mail->send())
@@ -52,7 +62,7 @@ public function __construct()
               echo 'Error al enviar el mensaje';
 
          }else{
-             echo 'Mensaje enviado';
+             echo 'Mensaje enviado ';
          }
 
     

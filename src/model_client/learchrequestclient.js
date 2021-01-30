@@ -3,20 +3,33 @@
 
 
 import './learchrequest.js';
-import { helloServer, LearchRequest, hellojson, helloAjax } from './learchrequest.js';
+import { helloServerGet, LearchRequest, hellojson } from './learchrequest.js';
 
+/**
+ * 
+ * REQUEST  GET CREATE FORM OBJ
+ */
+
+let formlearch = document.getElementById('learch_form');
+
+let formget = document.getElementById('form-get');
+
+if(formget != null)
+{
+
+    formget.addEventListener('submit', petitionGet);
+
+}
 
 /******************************************************************************
  * 
- * Request Login user
+ * Request Login user CREATE FORM OBJ
  * 
  * 
  * 
  * 
  */
 /// LOGIN USER 
-var formlearch = document.getElementById('learch_form');
-
 
 //agregamos evento en caso que no sea NULL 
 if (formlearch != null)
@@ -30,13 +43,13 @@ if (formlearch != null)
 }
 /******************************************************************************
  * 
- * Request Resgister user
+ * Request Resgister user FORM
  * 
  * 
  */
 
 /// REGISTER USER
-var formregister = document.getElementById('formlearch_register');
+let formregister = document.getElementById('formlearch_register');
 
 if (formregister != null)
 {
@@ -51,6 +64,20 @@ if (formregister != null)
 
 }
 
+///Send dates with GET request
+
+function petitionGet(e)
+{
+    e.preventDefault();
+
+    //Obtenemos el valor del formulario 
+    let petitonurl = document.formget.elements[0].value;
+
+
+    helloServerGet(petitonurl,dateshow);
+
+
+}
 
 /// SEND JSON DATES LOGIN 
 function sendDatesRequest(e)
@@ -74,26 +101,20 @@ function sendDatesRequest(e)
     let datespost = [nameinput, dateemail, "password",datepass];
 
     document.getElementById("showdate-2").innerHTML = datespost;
-
+    
     // Json para envio de los datos Login 
-    const  dates = {
-
+    const dates = {
         useremail: dateemail,
         pass: datepass 
 
     }
     
-
-   // helloServer('././service/learchRequestSession.php',emailpost)
-   hellojson('././service/sessionusers.php',JSON.stringify(dates),loginAction);
-
-   //helloAjax('././service/sessionusers.php',JSON.stringify(dates),loginAction);
-
-  
+    //Peticon ajax al servidor se envia un json
+   hellojson('././service/sessionusers.php',JSON.stringify(dates),responseLogin)
    
 }
 
-///SEND JSON DATES  REGISTER NEW USER
+///RESIVE JSON DATES For REGISTER NEW USER FROM REquest register
 function sendRegisteruser(e)
 {
     e.preventDefault();
@@ -116,33 +137,66 @@ function sendRegisteruser(e)
 
     }
 
-    hellojson('././service/users.php',JSON.stringify(dateaduser),false)
-
-
-
+     hellojson('././service/users.php',JSON.stringify(dateaduser),dateshow)
+  
 }
 
-function loginAction(dates)
+///RESIVE JSON DATES LOGIN USER for Login From Request Login
+function responseLogin(dates)
+{
+    document.getElementById("showdate-request-2").innerHTML = dates;
+  
+    if (dates.login == "fail"){
+        
+        console.log("dates from servidor ", dates);   
+
+    }else{
+        loginEnable();
+        setTimeout(location.reload(),60000);   
+
+    }
+
+    
+}
+
+function dateshow(dates)
 {
 
-    console.log("datos del servidor request login : " + dates);
+    document.getElementById("showdate-request-2").innerHTML = dates;
+
+    console.log('llamado del callback de la funcion ajax ' + dates);
+
+
+  
+}
+
+function timetrigger()
+{
+    let timnow = new Date();
+    let timaction = new Date();
+    
+    timaction.setHours(19);
+    timaction.setMinutes(42);
+    timaction.setSeconds(20);
+    return timaction.getTime() - timnow.getTime();
     
 
 }
 
-function requestDat(datessend)
+function respondrequest()
 {
-   let requespost = new LearchRequest('POST','././controllers/learchRequestSession.php');
 
-   requespost.requestDates(datessend);
+    alert('tiempo terminado');
+
 
 }
 
-function dateshow()
+function loginEnable()
 {
-    console.log('llamado ajax con Jquery');
+
+    let welcome =' bienvenido a Learch system';
+
+    document.getElementById("showdate-request-2").innerHTML = welcome;
+  
 
 }
-
-
-
