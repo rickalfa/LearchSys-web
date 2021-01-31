@@ -3,48 +3,43 @@
 
    require('././controllers/config/configapp.php');
 
-   echo ROOTPROJECT;
+   //echo ROOTPROJECT;
 
  ///NAVEGATION MENU User No logger
 session_start();
 
 if(!$_SESSION['ok'])
       {
-        echo '
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
+        /// Nav menu EDGE
+        echo '  
+        <!-- Encabezado -->
 
- <a class="navbar-brand" href="#">LearchSys</a>
-
-  <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-
-    <li class=nav-item active>
-      <a class="nav-link" href= "'.ROOTPROJECT.'home/main ">Home <span class="sr-only">(current)</span></a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="'.ROOTPROJECT.'noticia">Notice</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="'.ROOTPROJECT.'vision">vision</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="'.ROOTPROJECT.'download">Download</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="'.ROOTPROJECT.'member">Members</a>
-    </li>
-  
-  </ul>
-
-  <ul class="navbar-nav  mt-lg-0">
-    <li class="nav-item">
-    <a class="nav-link" href="'.ROOTPROJECT.'login">Login</a>
-    </li>
-    <li class="nav-item">
-    <a class="nav-link" href="'.ROOTPROJECT.'register">Register</a>
-    </li>
-  </ul>
-
-</nav> ';
+        <header class="header d-flex flex-row justify-content-end align-items-center trans_200">
+      
+          <!-- Logo -->
+          <div class="logo mr-auto">
+            <a href="">EDGE<span>{Code}</span></a>
+          </div>
+      
+          <!-- Navegacion -->
+          <nav class="main_nav justify-self-end text-right">
+            <ul>
+              <li class="active"><a href="'.ROOTPROJECT.'main">Inicio</a></li>
+              <li><a href="'.ROOTPROJECT.'about">Nosotros</a></li>
+              <li><a href="'.ROOTPROJECT.'services">Servicios</a></li>
+              <li><a href="'.ROOTPROJECT.'contact">Contacto</a></li>
+            </ul>
+      
+      
+          </nav>
+      
+          <!-- contenedor 1 -->
+          <div class="hamburger_container bez_1">
+            <i class="fas fa-bars trans_200"></i>
+          </div>
+      
+        </header>
+';
  ///END  NAVEGATION MENU  NO logger
     }else
     {

@@ -13,7 +13,7 @@ $routecheck = $_GET['check'];
 
 //$route2param = $_GET['ruta'];
 
-echo 'la ruta de dos paramatros es : '.$route2param . ' --- ';
+//echo 'la ruta de dos paramatros es : '.$route2param . ' --- ';
 
 //$routeurl = isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI']: 'home/main' ;
 

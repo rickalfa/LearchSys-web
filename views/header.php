@@ -6,36 +6,45 @@
 <html lang="es">
     <style></style>
  <head>
-    	<meta charset="UTF-8">
-	    <!--<META HTTP-EQUIV="REFRESH" CONTENT="10;URL=home/main">-->
 
+      <!--<META HTTP-EQUIV="REFRESH" CONTENT="10;URL=home/main">-->
+      <title>EDGE{Code} - Inicio</title>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="descripcion" content="Proyecto Edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- LINKS the MATERIAL public bootstrap and CSS -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-  integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-  
 <!--link de FreeAwesome Icons and Fonts -->
          <script src="https://kit.fontawesome.com/b540600cdc.js" crossorigin="anonymous"></script>
 
-         <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"
-          integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="crossorigin="anonymous"></script>
-
   <!-- Servicio de CAPTCHAT Gogle-->
          <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+ <!-- Servicio de CAPTCHAT Gogle-->
+
+      
+<!-- Recursos EdgeCode-->
 
 
-         <link rel="stylesheet" href = "./public/bootstrap/css/bootstrap.css"
+<link rel="stylesheet" type="text/css" href="./public/styles/bootstrap4/bootstrap.min.css">
+<link href="./public/plugins/fontawesome-free-5.0.1/css/fontawesome-all.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="./public/plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+<link rel="stylesheet" type="text/css" href="./public/plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+<link rel="stylesheet" type="text/css" href="./public/plugins/OwlCarousel2-2.2.1/animate.css">
+<link rel="stylesheet" type="text/css" href="./public/plugins/slick-1.8.0/slick.css">
+<link href="./public/plugins/icon-font/styles.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="./public/styles/main_styles.css">
+<link rel="stylesheet" type="text/css" href="./public/styles/responsive.css">
 
-         <link rel="stylesheet" href = "./fontawesome-free-web/css/all.css"
-
-         <link rel="stylesheet" href = "./public/bootstrap/js/bootstrap.js"
-         <link rel="stylesheet" href="./public/css/estilo_basic.css">
-         <link rel="stylesheet" href="./public/css/estilo_dashboard.css">
-
+<link rel="stylesheet" type="text/css" href="./public/plugins/slick-1.8.0/slick.css">
+<link rel="stylesheet" type="text/css" href="./public/styles/about_styles.css">
+<link rel="stylesheet" type="text/css" href="./public/styles/about_responsive.css">
 	  
 
  </head>
 
-<div class= "container-fluid">
+
  <body>
-    
+
+ <div class="super_container">
+
  

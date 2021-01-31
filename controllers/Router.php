@@ -29,8 +29,7 @@ class Router{
 
         if( !isset($_SESSION) )
         {
-            
-            echo "<p>CREACION DE USUARIO</p>";
+            ///CREACION DE USUARIO de Session en caso de no estar Registrado
 
             ///Parametro de la funcion  session_start. Documentacion
             ///http://php.net/manual/es/session.configuration.php
@@ -44,7 +43,7 @@ class Router{
 
         }
        
-                echo 'route Init class name : '. __CLASS__;
+                //echo 'route Init class name : '. __CLASS__;
 
                ///formulario de autenticacion si no esta validada la autenticacion
                /// se mostrara el login
@@ -65,16 +64,16 @@ class Router{
 
                 switch($this->route)
                 {
-                    case 'home/main':                  
-                         $controlador->load_view('home/main');
+                    case 'main':                  
+                         $controlador->load_view('main');
                         break;
                     
-                    case 'noticia':               
-                         $controlador->load_view('noticia');
+                    case 'contact':               
+                         $controlador->load_view('contact');
                         break;
         
-                    case 'vision':                
-                         $controlador->load_view('vision');
+                    case 'about':                
+                         $controlador->load_view('about');
                         break;
     
                     case 'download':     
