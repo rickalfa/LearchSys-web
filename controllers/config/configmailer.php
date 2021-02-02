@@ -8,7 +8,7 @@ define('SMTP_AUTH_',true);
 
 define('USERNAME_EMAIL', 'angelshamael@gmail.com');
 
-define('PASSWORD_EMAIL', 'Betancourt44');
+define('PASSWORD_EMAIL', 'Betancourt00');
 
 define('SMTPSecure', 'tls');
 

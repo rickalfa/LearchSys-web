@@ -24,10 +24,9 @@ class UsersModel extends Model {
     function __destruct(){
 
     }
-
+    /// Searxh From Field Email user
     public function searchEmailUser($email)
     {
-        echo "<p>buscar Usuario por email</p>";
 
         $this->query = "SELECT * FROM users WHERE email = '$email'";
 
@@ -68,6 +67,7 @@ class UsersModel extends Model {
      * METODOS abstractos de la clase padre CRUD 
      */
 
+     ///CREATE User Method in DB
     public function create($user_data = array() ){
 
         foreach($user_data as $key => $value){
@@ -83,7 +83,7 @@ class UsersModel extends Model {
         $this->setQuery();
 
     }
-
+    /// SELECT Date from DB with USER_ID
     public function read( $user_id = '' ){
 
         $this->query = ($user_id != '')
@@ -108,7 +108,7 @@ class UsersModel extends Model {
         return $data;
 
     }
-
+    /// UPDATE Method From DB
     public function update($users_data = array()){
 
         foreach($users_data as $key => $value){
@@ -132,7 +132,7 @@ class UsersModel extends Model {
   
 
     }
-
+    /// DELTE Method from DB
     public function delete($users = ''){
 
         $this->query = "DELETE FROM users WHERE user_id = '$users'";
@@ -140,6 +140,11 @@ class UsersModel extends Model {
         $this->setQuery();
 
     }
+    /**
+     *    END METHODS CRUD
+     * ********************************************************************************
+     * 
+     */
 
     /**
      * METODOS QUE UTILIZAN EL COMANDO MYSQL REPLACE

@@ -256,11 +256,11 @@ export function hellojson(pathre,senddat,mycallback)
 
         //let datest = JSON.stringify(dates);
         let datesre = JSON.parse(dates);
-
-
-        console.log("datos de respuesta  : " + datesre);
-        console.log(" dato user del obj " + datesre.user);
-        console.log(" datos del obj " + dates);
+        //
+        //
+        // console.log("datos de respuesta  : " + datesre);
+        // console.log(" dato user del obj " + datesre.user);
+        // console.log(" datos del obj " + dates);
 
 
         mycallback(datesre);
