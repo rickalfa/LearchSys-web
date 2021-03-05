@@ -15,6 +15,8 @@ if(!$_SESSION['ok'])
 
  <a class="navbar-brand" href="#">LearchSys</a>
 
+ <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
   <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 
     <li class=nav-item active>
@@ -32,7 +34,8 @@ if(!$_SESSION['ok'])
     <li class="nav-item">
       <a class="nav-link" href="'.ROOTPROJECT.'member">Members</a>
     </li>
-  
+
+    </li>
   </ul>
 
   <ul class="navbar-nav  mt-lg-0">
@@ -43,6 +46,7 @@ if(!$_SESSION['ok'])
     <a class="nav-link" href="'.ROOTPROJECT.'register">Register</a>
     </li>
   </ul>
+ </div> 
 
 </nav> ';
  ///END  NAVEGATION MENU  NO logger
@@ -71,22 +75,24 @@ if(!$_SESSION['ok'])
           <li class="nav-item">
             <a class="nav-link" href="'.ROOTPROJECT.'member">Members</a>
           </li>
-          </ul>
 
-          <li>
-          <div class="btn-group">
-          <button class="btn btn-success btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            User menu
-          </button>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">Edit</a>
-            <a class="dropdown-item" href="'.ROOTPROJECT.'salir">Logout</a>
-            
-          </div>
+        </ul>
+
+      <ul class="navbar-nav  mt-lg-0">
+       <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          user "'.$_SESSION['name'].'"
+        </a>
+        <div class="dropdown-menu" aria-labelledby="Usuario" >
+          <a class="dropdown-item" href="#">Profile</a>
+          <a class="dropdown-item" href="'.ROOTPROJECT.'salir">Logout</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
         </div>
-        </li>
+       </li>
+      </ul>
+     
 
-      
       </nav> ';
 
     }

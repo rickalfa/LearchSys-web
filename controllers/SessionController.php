@@ -33,9 +33,8 @@ class SessionController
         else
         {
             /// Creamos la session en caso de que el login se exitoso y retornamos true
-            session_start();
-            $_SESSION['ok'] = true;
-
+              
+            $this->createSession($this->datesuser);
 
             return true;
 
@@ -62,12 +61,14 @@ class SessionController
     {
         session_start();
 
-        foreach($datesuser as $clave=>$value)
-        {
-         $_SESSION[$clave]= $value;
+      // foreach($datesuser as $clave =>$value)
+      // {
+      //  $_SESSION[$clave]= $value;
 
-        }
+      // }
 
+        $_SESSION['name'] = $datesuser[0]['name'];
+        $_SESSION['pass'] = "Hello";
         $_SESSION['ok'] = true;
 
     }

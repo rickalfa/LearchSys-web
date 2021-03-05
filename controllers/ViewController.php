@@ -21,6 +21,7 @@ class ViewController{
     }
 
     public function load_view_menu($view){
+        
 
         require_once( self::$menu_path . $view . '.php');
 

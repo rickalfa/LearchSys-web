@@ -1,12 +1,15 @@
 <?php
 
 require_once('../controllers/SessionController.php');
+
+require_once('../controllers/MailerController.php');
+
 //require_once('../controllers/CookieController.php');
 
-//require_once('../controllers/MailerController.php');
 
 
 $sessionlog = new SessionController();
+$Emailchek = new MailerController();
 
 // adquerimos el tipo de methodo con la que se esta haciendo la request
 $method_request = $_SERVER['REQUEST_METHOD'];
@@ -26,15 +29,25 @@ switch($method_request){
              ///Create Session from Login Method
           $statelogin = $sessionlog->login($dateuser['useremail'],$dateuser['pass']);
 
+
             if($statelogin){
 
                  // Creacion del Json de la respuesta
+
+                 $datesuse = $sessionlog->getDatesUser();
+
+                 $jsondatesuser = json_encode($datesuse);
+
                  $Jsonr = array('login'=>"done",
                  'user'=>"active",
-                 'status'=>"create-session");
+                 'status'=>"create-session",
+                  'datesuser' =>$jsondatesuser );
 
-               $responselogin = json_encode($Jsonr);               
+               $responselogin = json_encode($Jsonr);  
+
                echo $responselogin;
+
+       
 
             }else{
 

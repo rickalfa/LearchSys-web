@@ -145,6 +145,8 @@ function sendRegisteruser(e)
 function responseLogin(dates)
 {
     document.getElementById("showdate-request-2").innerHTML = dates;
+
+    console.log(dates);
   
     if (dates.login == "fail"){
         
@@ -152,11 +154,18 @@ function responseLogin(dates)
 
     }else{
         loginEnable();
-        setTimeout(location.reload(),60000);   
+        setTimeout(reloadpage,6000);   
 
     }
 
     
+}
+
+function reloadpage()
+{
+
+    location.reload();
+
 }
 
 function dateshow(dates)

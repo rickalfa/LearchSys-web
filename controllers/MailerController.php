@@ -19,8 +19,7 @@ public function __construct()
  public function send_email($emailto)
  {
 
-    echo 'Hello email send';
-
+    
         //Server settings
        // $this->mail->SMTPDebug = 2;                    // Enable verbose debug output
 
@@ -34,8 +33,8 @@ public function __construct()
         $this->mail->Port       = PORT_EMAIL;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
     
         //Recipients
-        $this->mail->setFrom($emailto, 'Correo Coorporativo');
-        $this->mail->addAddress($emailto, 'Fea');     // Add a recipien, Destinatario           // Name is optional
+        $this->mail->setFrom($emailto, 'Correo Coorporativo de Learchsystem');
+        $this->mail->addAddress($emailto, 'somos unos imbeciles');     // Add a recipien, Destinatario           // Name is optional
       
         // Attachments
         //$mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
@@ -46,7 +45,7 @@ public function __construct()
         $this->mail->Subject = 'Comprovacion de email  ';
         $this->mail->Body    = '<html> 
                                  <body>  
-                                Hola saludos desde EdgecodeCorporation <br>como estas </br> 
+                                RODRIGO LA ESTAMOS PURO VENDIENDO EdgecodeCorporation <br>como estas </br> 
                                <br> siga este link para confirmar su correo <br>
                                
                                <a href=" http://eightdeaths.com">link de comprovacion</a> <br>

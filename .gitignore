@@ -1,5 +1,9 @@
 .vs
 .htacces
+
+#Configuracion de modo Local 
+controllers/config/configapp.php
+
 modelapp/Model.php
 vendor/*
 composer.jon
