@@ -10,6 +10,7 @@
  Class UsersController{
 
     private $model;
+    
 
 
     /**
@@ -36,6 +37,11 @@
     public function searchemail($email){
 
         return $this->model->searchemailUser($email);
+
+    }
+
+    public function GetSells()
+    {
 
     }
 

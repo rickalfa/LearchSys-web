@@ -7,7 +7,6 @@ require_once('../controllers/MailerController.php');
 //require_once('../controllers/CookieController.php');
 
 
-
 $sessionlog = new SessionController();
 $Emailchek = new MailerController();
 
@@ -27,7 +26,7 @@ switch($method_request){
         }else{
 
              ///Create Session from Login Method
-          $statelogin = $sessionlog->login($dateuser['useremail'],$dateuser['pass']);
+            $statelogin = $sessionlog->login($dateuser['useremail'],$dateuser['pass']);
 
 
             if($statelogin){
@@ -38,6 +37,8 @@ switch($method_request){
 
                  $jsondatesuser = json_encode($datesuse);
 
+               //Check email
+                 // Creacion del Json de la respuesta DONE
                  $Jsonr = array('login'=>"done",
                  'user'=>"active",
                  'status'=>"create-session",
@@ -51,7 +52,7 @@ switch($method_request){
 
             }else{
 
-               // Creacion del Json de la respuesta
+               // Creacion del Json de la respuesta FAIL
                 $Jsonr = array('login'=>"fail",
                                   'user'=>"unknow",
                                 'status'=>"no-create");

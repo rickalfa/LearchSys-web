@@ -23,6 +23,7 @@ switch($method_request){
       if(empty($dateuser))
      {
       echo 'mensaje vacio request session : '.$dateuser;
+
      }
     else
      {
@@ -34,8 +35,9 @@ switch($method_request){
 
       if($existemail[0] == NULL){
 
-         echo ' el email'.$dateuser['email'].' es valido no esta en los registros <br>';
-      
+      // EMAIL valido no existe en los registros
+      //se registra el usuario con los datos entregados
+
          $new_user = array(
  
             'user_id' => 0,
@@ -51,23 +53,39 @@ switch($method_request){
             
         );
    
-          echo 'datos recividos al servidor, email del user : '.$dateuser['email']. '<br>';
-          // var_dump($dateuser);
-          echo ' <br>'.$dateuser['email'].' tamaño del arreglo : '.count($dateuser);
-          echo '<br> TIPO DE METODO REQUEST : '.$method_request.'<br>';
-          echo '<br> datos de session : <br> ';
-          echo ' estado del usuario :'.$statelogin.'<br>';
-   
          // metodo para enviar email para comprovar el correo del usuario
          //$Emailchek->send_email($new_user['email']);
+
          /// enviamos los Datos al servidor para crear el nuevo usuario
           $userlearch->create($new_user);  
+
+          $Jsonr = array('login'=>"done",
+          'user'=>$dateuser['name'],
+          'status'=>"register",
+           'msj'=>" welcome, register succes  Check you email");
+
+           $responselogin = json_encode($Jsonr);   
+
+            /// RETURN
+            echo $responselogin;
+
+
+
       }else{
 
-         var_dump($existemail);
-         
-         echo '<br> el email : '.$existemail[0]['email'].' ya esta registrado <br>';
+         // Fail resgister 
+         // exist Email 
+         $Jsonr = array('login'=>"fail",
+                       'user'=>"no-resgister",
+                       'status'=>"email-exist",
+                        'msj'=>" email : ".$existemail[0]['email']." is use for another user");
 
+       $responselogin = json_encode($Jsonr);   
+       
+       /// RETURN
+       echo $responselogin;
+         
+       
       }
          
    }

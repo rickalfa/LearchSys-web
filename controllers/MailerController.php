@@ -18,8 +18,7 @@ public function __construct()
 
  public function send_email($emailto)
  {
-
-    
+      
         //Server settings
        // $this->mail->SMTPDebug = 2;                    // Enable verbose debug output
 
@@ -61,7 +60,7 @@ public function __construct()
               echo 'Error al enviar el mensaje';
 
          }else{
-             echo 'Mensaje enviado ';
+              echo 'Mensaje enviado ';
          }
 
     
@@ -71,10 +70,6 @@ public function __construct()
 
 
 };
-
-
-
-
 
 ?>
 

@@ -137,13 +137,40 @@ function sendRegisteruser(e)
 
     }
 
-     hellojson('././service/users.php',JSON.stringify(dateaduser),dateshow)
+     hellojson('././service/users.php',JSON.stringify(dateaduser),responseResgister)
   
+}
+
+function responseResgister(dates)
+{
+    let timeID
+    let showdate = document.getElementById("showdate-request-2");
+  
+    if (dates.login == "fail"){
+        
+        showdate.innerHTML = "el " + dates.msj;
+
+        console.log("dates from servidor : " + dates.login); 
+
+
+    }else{
+
+      
+        showdate.innerHTML = "el email " + dates.msj;
+
+        console.log("dates from servidor : ", dates); 
+      
+        timeID = setTimeout(reloadpage, 4000);
+
+      
+    }
+    
 }
 
 ///RESIVE JSON DATES LOGIN USER for Login From Request Login
 function responseLogin(dates)
 {
+    
     document.getElementById("showdate-request-2").innerHTML = dates;
 
     console.log(dates);
@@ -153,19 +180,12 @@ function responseLogin(dates)
         console.log("dates from servidor ", dates);   
 
     }else{
-        loginEnable();
+
+        welcomeEnable();
         setTimeout(reloadpage,6000);   
 
     }
-
     
-}
-
-function reloadpage()
-{
-
-    location.reload();
-
 }
 
 function dateshow(dates)
@@ -173,22 +193,17 @@ function dateshow(dates)
 
     document.getElementById("showdate-request-2").innerHTML = dates;
 
-    console.log('llamado del callback de la funcion ajax ' + dates);
+    console.log('llamado del callback de la funcion ajax SetTimeOt ' + dates);
 
 
   
 }
 
-function timetrigger()
+///recargar pagina
+function reloadpage()
 {
-    let timnow = new Date();
-    let timaction = new Date();
-    
-    timaction.setHours(19);
-    timaction.setMinutes(42);
-    timaction.setSeconds(20);
-    return timaction.getTime() - timnow.getTime();
-    
+ 
+    location.reload();
 
 }
 
@@ -200,12 +215,12 @@ function respondrequest()
 
 }
 
-function loginEnable()
+function welcomeEnable()
 {
 
-    let welcome =' bienvenido a Learch system';
+    let welcome =" Welcome to Learch system";
 
-    document.getElementById("showdate-request-2").innerHTML = welcome;
+    document.getElementById("showdate").innerHTML = " bienvenido a Learch system";
   
 
 }

@@ -85,6 +85,10 @@ class Router{
                          $controlador->load_view('members');
                         break;
 
+                    case 'item':
+                            $controlador->load_view('item');
+                       break;
+
                     case 'login':
                         session_start();
                         if ($_SESSION['ok']) {
