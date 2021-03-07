@@ -76,6 +76,9 @@ if(!$_SESSION['ok'])
             <a class="nav-link" href="'.ROOTPROJECT.'download">Download</a>
           </li>
           <li class="nav-item">
+          <a class="nav-link" href="'.ROOTPROJECT.'item">items</a>
+        </li>
+          <li class="nav-item">
             <a class="nav-link" href="'.ROOTPROJECT.'member">Members</a>
           </li>
 

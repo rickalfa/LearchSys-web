@@ -51,14 +51,39 @@ abstract protected function get();
 
   }
 
+  
+  private function dbstepsquery()
+  {
+    $this->db_open();  //// se estqablece CONEXION con la base de datos
+
+    ///// EJECUCION de la QUERY
+    if ($this->conn->query($this->query) === true) {
+        
+    }else{
+
+      throw new Excep(' error query execut '.$this->conn->error);
+
+    }
+    
+    $this->db_close();
+
+
+  }
+
   ///Ejecutar consulta simple del tipo INSERT, DELETE o UPDATE
   protected function setQuery(){
 
-    $this->db_open();  //// se estqablece CONEXION con la base de datos
+try {
+  //code...
 
-    $this->conn->query($this->query); ///// EJECUCION de la QUERY
+  $this->dbstepsquery();
 
-    $this->db_close();
+} catch (Excep $th) {
+  
+  echo ' excepcion ejecutada : '.$th->getMessage();
+
+}
+    
 
 
   }

@@ -38,8 +38,10 @@ class ItemsModel extends Model {
              
         }
 
-        $this->query = "INSERT INTO item (name, description, price, category, quantity, date_create)
-         VALUES ('$name', '$description', '$price', '$category', '$quantity', '$date_create' )";
+        $this->query = "INSERT INTO items ( NAME, MARK, WEIGHT, STATUS, PRICE, INGRESDATE, EXPIRATIONDATE,
+         TYPEPRODUCT, CATEGORY, DESCRYPTION, COUNTRYORIGIN, IMG, STOCK)
+         VALUES ('$name', '$mark', '$weight', '$status', '$price', '$ingresdate', '$expirationdate', '$typeitem', '$category', 
+         '$description', '$countryorigin', '$img', '$stock' )";
 
         $this->setQuery();
 
@@ -48,8 +50,8 @@ class ItemsModel extends Model {
     public function read( $item_id = '' ){
 
         $this->query = ($item_id != '')
-         ? "SELECT * FROM item WHERE item_id = $item_id "
-         : "SELECT * FROM item" ;
+         ? "SELECT * FROM items WHERE item_id = $item_id "
+         : "SELECT * FROM items" ;
 
          $this->getQuery();
 
@@ -81,13 +83,20 @@ class ItemsModel extends Model {
                
           }
   
-          $this->query = "UPDATE item  SET name = '$name',
-          description = $description,
-          price = $category,
-          category = $category,
-          quantity = $quantity,
-          date_create = $date_create
-           WHERE item_id = $item_id";
+          $this->query = "UPDATE items SET name = '$name',
+          MARK = '$mark',
+          WEIGHT = '$weight',
+          STATUS = '$status',
+          PRICE = '$price',
+          INGRESDATE = '$ingresdate',
+          EXPIRATIONDATE = '$expirationdate',
+          TYPEITEM = '$tyitem',
+          CATEGORY = '$category',
+          DESCRYPTION = '$description',
+          COUNTRYORIGIN = '$countryorigin',
+          IMG = '$img',
+          STOCK = '$stock'
+           WHERE ITEM_ID = $item_id";
   
           $this->setQuery();
   
@@ -96,7 +105,7 @@ class ItemsModel extends Model {
 
     public function delete($item_id = ''){
 
-        $this->query = "DELETE FROM item WHERE item_id = $item_id";
+        $this->query = "DELETE FROM items WHERE item_id = $item_id";
   
         $this->setQuery();
 
@@ -113,7 +122,7 @@ class ItemsModel extends Model {
                
           }
   
-          $this->query = "REPLACE INTO item (name, description, price, category, quantity, date_create)
+          $this->query = "REPLACE INTO items (name, description, price, category, quantity, date_create)
           VALUES ('$name', '$description', '$price', '$category', '$quantity', '$date_create' )";
  
   
@@ -124,8 +133,8 @@ class ItemsModel extends Model {
     public function get($item_id = '' ){
 
         $this->query = ($item_id != '')
-         ? "SELECT * FROM item WHERE item_id = $status_id "
-         : "SELECT * FROM item" ;
+         ? "SELECT * FROM items WHERE item_id = $status_id "
+         : "SELECT * FROM items" ;
 
          $this->getQuery();
 
