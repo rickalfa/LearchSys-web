@@ -19,14 +19,15 @@ if(formget != null)
 
     formget.addEventListener('submit', petitionGet);
 
+}else{
+
+    console.log("elemnto form GET encontrado");
+
 }
 
 /******************************************************************************
  * 
  * Request Login user CREATE FORM OBJ
- * 
- * 
- * 
  * 
  */
 /// LOGIN USER 
@@ -193,7 +194,7 @@ function dateshow(dates)
 
     document.getElementById("showdate-request-2").innerHTML = dates;
 
-    console.log('llamado del callback de la funcion ajax SetTimeOt ' + dates);
+    console.log('llamado del callback de la funcion ajax GET ' + dates);
 
 
   
